@@ -74,6 +74,13 @@ h1, h2, h3 {
     color: var(--text-bright);
     margin-bottom: 1rem;
 }
+hr {
+  border: none;             
+  height: 1px;              
+  background-color: var(--gentoo-purple-light2);   
+  width: 75%;               
+  margin: 20px auto;        
+}
 
 h1 {
     border-bottom: 1px solid var(--gentoo-purple-light);
@@ -227,4 +234,42 @@ footer {
     content: "";
     display: table;
     clear: both;
+}
+.wiki-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    background-color: var(--bg-navbar);
+    border: 1px solid var(--gentoo-purple-light);
+}
+
+.wiki-table th {
+    background-color: var(--bg-body); 
+    color: var(--gentoo-green); 
+    font-weight: bold;
+    text-align: left;
+    padding: 10px 12px;
+    border: 1px solid var(--gentoo-purple-light);
+}
+
+.wiki-table td {
+    padding: 10px 12px;
+    border: 1px solid var(--gentoo-purple-light);
+    color: var(--text-main);
+    vertical-align: middle;
+}
+
+.wiki-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02); 
+}
+
+.wiki-table tr:hover {
+    background-color: rgba(110, 86, 175, 0.1); 
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }

@@ -8,7 +8,7 @@
   {
     "title": "Shredder Hub",
     "tags": ["shredder", "pvp", "combat", "shred"],
-    "snippet": "A comprehensive guide and collection of information on shredders.",
+    "snippet": "A meta block on shredders",
     "url": "pages/shredderhub.html"
   },
   {
@@ -28,5 +28,11 @@
     "tags": ["gyro", "movment", "build"],
     "snippet": "Specifications for and building guide for a rigid and normal 1x1 gyro",
     "url": "pages/shreds/1x1gyro.html"
+  },
+  {
+    "title": "Armor info",
+    "tags": ["armor", "armorinfo", "pushback", "thickness", "angling", "armorlogic", "armor logic", "rigidity"],
+    "snippet": "A comprehensive guide to armor info",
+    "url": "pages/shreds/armorinfo.html"
   }
 ]
