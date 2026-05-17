@@ -26,8 +26,6 @@
     font-family: 'Consolas', 'Courier New', monospace;
 }
 
-
-
 body {
     background-color: var(--bg-body);
     color: var(--text-main);
@@ -140,20 +138,19 @@ footer {
     color: var(--gentoo-purple-light);
     font-size: 0.9rem;
 }
-/* Fixes the layout container position */
+
 .search-container {
     position: relative;
     display: inline-block;
 }
 
-/* Forces the results box to drop down and float *above* the wiki content */
 .search-results-box {
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
     z-index: 1000;
-    background: #2a2a2a; /* Match this to your navbar background color */
+    background: #2a2a2a; 
     border: 1px solid #444;
     border-radius: 4px;
     max-height: 300px;
@@ -161,7 +158,6 @@ footer {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
-/* Optional styling to make each search item clear and clickable */
 .search-item {
     display: block;
     padding: 10px;
@@ -175,7 +171,7 @@ footer {
 }
 
 .search-item:hover {
-    background: #3a3a3a; /* Slight highlight on hover */
+    background: #3a3a3a; 
 }
 
 .search-item strong {
