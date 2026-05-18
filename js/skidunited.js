@@ -35,39 +35,66 @@ function initWikiSearch() {
 
 // Executed every time a user types a letter
 function runWikiSearch() {
-    const query = document.getElementById('wiki-search').value.trim().toLowerCase();
-    const resultsContainer = document.getElementById('wiki-results');
+    const query = document
+        .getElementById('wiki-search')
+        .value
+        .trim()
+        .toLowerCase();
 
-    if (!query || !searchData.length) {
-        resultsContainer.innerHTML = '';
+    const resultsContainer =
+        document.getElementById('wiki-results');
+
+    // Wait until search data exists
+    if (!searchData.length) {
+        resultsContainer.innerHTML =
+            '<div style="padding:10px;">Loading...</div>';
         return;
     }
 
-    // Natively filter data matching title, tags, or snippet text
-    const results = searchData.filter(page => {
-        const matchesTitle = page.title.toLowerCase().includes(query);
-        const matchesSnippet = page.snippet.toLowerCase().includes(query);
-        const matchesTags = page.tags.some(tag => tag.toLowerCase().includes(query));
-        return matchesTitle || matchesSnippet || matchesTags;
-    });
+    let results;
+
+    // Show default pages when empty
+    if (query === '') {
+        results = searchData.slice(0, 8);
+    } else {
+        results = searchData.filter(page => {
+            const matchesTitle =
+                page.title.toLowerCase().includes(query);
+
+            const matchesSnippet =
+                page.snippet.toLowerCase().includes(query);
+
+            const matchesTags =
+                page.tags.some(tag =>
+                    tag.toLowerCase().includes(query)
+                );
+
+            return matchesTitle ||
+                   matchesSnippet ||
+                   matchesTags;
+        });
+    }
 
     resultsContainer.innerHTML = '';
 
     if (results.length === 0) {
-        resultsContainer.innerHTML = '<div style="padding:10px; font-size:12px; color:#999;">No pages found</div>';
+        resultsContainer.innerHTML =
+            '<div style="padding:10px; font-size:12px; color:#999;">No pages found</div>';
         return;
     }
 
-    // Display the matching local items
-    // Display the matching local items
-    results.forEach(page => {
-        // Calculate the base path dynamically (same logic used in your fetch)
-        const path = window.location.pathname;
-        const rootEndIndex = path.indexOf('/Omni/');
-        const basePath = rootEndIndex !== -1 ? path.substring(0, rootEndIndex + 6) : '/';
+    const path = window.location.pathname;
+    const rootEndIndex = path.indexOf('/Omni/');
+    const basePath =
+        rootEndIndex !== -1
+            ? path.substring(0, rootEndIndex + 6)
+            : '/';
 
-        // Strip any leading slashes from the page URL to avoid double-slashes
-        const cleanPageUrl = page.url.startsWith('/') ? page.url.substring(1) : page.url;
+    results.forEach(page => {
+        const cleanPageUrl =
+            page.url.startsWith('/')
+                ? page.url.substring(1)
+                : page.url;
 
         resultsContainer.innerHTML += `
             <a href="${basePath}${cleanPageUrl}" class="search-item">

@@ -335,3 +335,17 @@ section, article {
 html {
     scroll-behavior: smooth;
 }
+#wiki-search {
+    width: 260px;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    border: 1px solid var(--gentoo-purple-light);
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    transition: width 0.2s ease;
+}
+
+
+#wiki-search:focus {
+    width: 320px;
+}
