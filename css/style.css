@@ -536,6 +536,31 @@ blockquote {
 }
 
 /* ═══════════════════════════════════════════
+   WIKI VIDEO EMBEDS (lazy-loaded)
+   ═══════════════════════════════════════════ */
+.wiki-video {
+    margin: 1.25rem 0;
+    width: 100%;
+}
+
+.wiki-video .thumb-inner {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-medium);
+    padding: 4px;
+    border-radius: 3px;
+}
+
+.wiki-video video,
+.wiki-video .lazy-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    background-color: #000;
+}
+
+
+/* ═══════════════════════════════════════════
    TABLES
    ═══════════════════════════════════════════ */
 .wiki-table {

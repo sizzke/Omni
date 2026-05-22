@@ -90,9 +90,9 @@
     "url": "pages/shreds/skeletonisation.html"
   },
   {
-    "title": "1x1 Gyro", 
-    "tags": ["gyro", "movment", "build"],
-    "snippet": "Specifications for and building guide for a rigid and normal 1x1 gyro",
-    "url": "pages/shreds/1x1gyro.html"
+    "title": "Gyro Cores", 
+    "tags": ["gyro", "shredder", "build", "core"],
+    "snippet": "Guide and explanation on the gyro core and it's variants.",
+    "url": "pages/shreds/gyrocore.html"
   }
 ]
