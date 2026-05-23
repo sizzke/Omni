@@ -107,3 +107,46 @@ function runWikiSearch() {
 
 // Start loading data immediately when the DOM is ready
 document.addEventListener('DOMContentLoaded', initWikiSearch);
+
+// ═══════════════════════════════════════════
+//  LAZY-LOAD VIDEOS (IntersectionObserver)
+//  Add class="lazy-video" and data-src="path/to/video.mp4"
+//  to any <video> element. The src is set only when the
+//  video scrolls into view, saving bandwidth.
+// ═══════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', function () {
+    const lazyVideos = document.querySelectorAll('video.lazy-video');
+    if (!lazyVideos.length) return;
+
+    // Use IntersectionObserver where supported (all modern browsers)
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    const video = entry.target;
+                    const src = video.getAttribute('data-src');
+                    if (src) {
+                        video.src = src;
+                        video.removeAttribute('data-src');
+                    }
+                    observer.unobserve(video);
+                }
+            });
+        }, {
+            rootMargin: '200px' // start loading 200px before visible
+        });
+
+        lazyVideos.forEach(function (video) {
+            observer.observe(video);
+        });
+    } else {
+        // Fallback: load all videos immediately
+        lazyVideos.forEach(function (video) {
+            var src = video.getAttribute('data-src');
+            if (src) {
+                video.src = src;
+                video.removeAttribute('data-src');
+            }
+        });
+    }
+});
