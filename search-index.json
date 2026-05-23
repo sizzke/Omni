@@ -36,12 +36,6 @@
     "url": "pages/shreds/massless.html"
   },
   {
-    "title": "3x5 Gyro",
-    "tags": ["gyro", "movement", "build"],
-    "snippet": "Documentation of the 3x5 gyro stabilizer.",
-    "url": "pages/shreds/3x5gyro.html"
-  },
-  {
     "title": "Void Tech",
     "tags": ["tech", "void", "surge"],
     "snippet": "Information on void tech and its abilites.",
@@ -56,6 +50,12 @@
   {
     "title": "Axis Locks",
     "tags": ["gyro", "axis", "lock"],
+    "snippet": "Types of axis locks explained.",
+    "url": "pages/shreds/blades.html"
+  },
+  {
+    "title": "Blades",
+    "tags": ["blade", "cutter", "design", "rules", "spacing"],
     "snippet": "Types of axis locks explained.",
     "url": "pages/shreds/axislocks.html"
   },
