@@ -716,6 +716,15 @@ footer strong {
     color: var(--text-muted);
 }
 
+.search-item .wiki-categories {
+    margin-top: 6px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    flex-wrap: wrap;
+    pointer-events: none;
+}
+
 /* ═══════════════════════════════════════════
    INFOBOX SIDEBAR
    ═══════════════════════════════════════════ */
