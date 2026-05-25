@@ -25,7 +25,7 @@
     "tags": ["movement", "movementinfo", "hover", "hover engines", "rocket", "rocket engines", "angled", "angled rocket engines", "hybrid", "hybrid rocket engines", "acceleration", "skybounce", "aerobounce"],
     "snippet": "A comprehensive guide to movement mechanics",
     "url": "pages/shreds/movementmechanics.html",
-    "categories": ["Functionality"]
+    "categories": ["Shredders", "Functionality"]
   },
   {
     "title": "Armor info",
@@ -49,13 +49,6 @@
     "categories": ["Tech"]
   },
   {
-    "title": "Template",
-    "tags": ["template"],
-    "snippet": "csa, csa, csa",
-    "url": "pages/shreds/template.html",
-    "categories": ["Template"]
-  },
-  {
     "title": "Axis Locks",
     "tags": ["gyro", "axis", "lock"],
     "snippet": "Types of axis locks explained.",
@@ -65,7 +58,7 @@
   {
     "title": "Blades",
     "tags": ["blade", "cutter", "design", "rules", "spacing"],
-    "snippet": "Types of axis locks explained.",
+    "snippet": "General information about blades and cutters.",
     "url": "pages/shreds/axislocks.html",
     "categories": ["Shredders", "Module"]
   },
@@ -74,7 +67,7 @@
     "tags": ["hyper", "motor", "torque"],
     "snippet": "Explanation of Hyper M2s",
     "url": "pages/shreds/hyperm2.html",
-    "categories": ["Shredders", "Module"]
+    "categories": ["Shredders", "Enhancement"]
   },
   {
     "title": "OG Shredders",
@@ -95,14 +88,21 @@
     "tags": ["optimise", "optimisation", "lag"],
     "snippet": "How to optimise and its importance.",
     "url": "pages/shreds/optimisation.html",
-    "categories": ["Documentation"]
+    "categories": ["Shredders", "Enhancement"]
   },
   {
     "title": "Skeletonisation",
     "tags": ["weld", "welding", "skeleton", "skeletonisation", "angle", "compression", "invincible"],
-    "snippet": "csa, csa, csa",
+    "snippet": "",
     "url": "pages/shreds/skeletonisation.html",
-    "categories": ["Functionality"]
+    "categories": ["Shredders", "Functionality"]
+  },
+  {
+    "title": "health",
+    "tags": ["weld", "welding", "skeleton", "skeletonisation", "angle", "compression", "invincible"],
+    "snippet": "",
+    "url": "pages/shreds/skeletonisation.html",
+    "categories": ["Shredders", "Health"]
   },
   {
     "title": "Gyro Cores", 
