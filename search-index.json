@@ -42,6 +42,12 @@
     "categories": ["Shredders", "Functionality"]
   },
   {
+    "title": "Physics Priority Distribituion",
+    "tags": ["tech", "engine", "ppd", "6x"],
+    "url": "pages/tech/ppd.html",
+    "categories": ["Ropefuel", "6x", "Engine mechanics"]
+  },
+  {
     "title": "Void Tech",
     "tags": ["tech", "void", "surge"],
     "snippet": "Information on void tech and its abilites.",

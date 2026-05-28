@@ -1084,7 +1084,6 @@ section, article {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.15rem;
 }
 
 .wiki-breadcrumb a {
@@ -1098,9 +1097,9 @@ section, article {
 }
 
 .wiki-breadcrumb a::after {
-    content: " /";
+    content: "/";
     color: var(--border-bright);
-    margin-left: 0.3rem;
+    margin: 0 0.3rem;
 }
 
 .wiki-breadcrumb span {
