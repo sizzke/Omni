@@ -5,29 +5,34 @@ let searchData = [];
 // Initialize search by fetching the index
 
 function initWikiSearch() {
-    // 1. Get the current URL path (e.g., /Omni/pages/shreds/3x5gyro.html)
     const path = window.location.pathname;
-
-    // 2. Find where the project root stops. If 'Omni' isn't in the URL (like local server), default to '/'
     const rootEndIndex = path.indexOf('/Omni/');
     const basePath = rootEndIndex !== -1 ? path.substring(0, rootEndIndex + 6) : '/';
 
-    // 3. Combine base path with the target filename
     fetch(basePath + 'search-index.json')
-        .then(response => {
-            if (!response.ok) throw new Error("Could not load search index");
-            return response.json();
+        .then(r => {
+            if (!r.ok) throw new Error('Could not load search index: ' + r.status);
+            return r.json();
         })
         .then(data => {
             searchData = data;
+            console.log('[wiki-search] loaded', searchData.length, 'pages');
         })
-        .catch(err => console.error("Error initializing search:", err));
+        .catch(err => console.error('[wiki-search] fetch failed:', err));
 
-    // Set up click listener to close dropdown when clicking outside
-    document.addEventListener('click', function (e) {
+    const searchInput = document.getElementById('wiki-search');
+    if (!searchInput) {
+        console.error('[wiki-search] input element not found in DOM');
+        return;
+    }
+
+    searchInput.addEventListener('input', runWikiSearch);
+    searchInput.addEventListener('focus', runWikiSearch);
+
+    document.addEventListener('click', function(e) {
         if (!e.target.closest('.search-container')) {
-            const resultsContainer = document.getElementById('wiki-results');
-            if (resultsContainer) resultsContainer.innerHTML = '';
+            const box = document.getElementById('wiki-results');
+            if (box) box.innerHTML = '';
         }
     });
 }
@@ -35,87 +40,46 @@ function initWikiSearch() {
 
 // Executed every time a user types a letter
 function runWikiSearch() {
-    const query = document
-        .getElementById('wiki-search')
-        .value
-        .trim()
-        .toLowerCase();
+    const input = document.getElementById('wiki-search');
+    const resultsContainer = document.getElementById('wiki-results');
+    if (!input || !resultsContainer) return;
 
-    const resultsContainer =
-        document.getElementById('wiki-results');
+    const query = input.value.trim().toLowerCase();
 
-    // Wait until search data exists
     if (!searchData.length) {
-        resultsContainer.innerHTML =
-            '<div style="padding:10px;">Loading...</div>';
+        resultsContainer.innerHTML = '<div style="padding:10px;">Loading…</div>';
         return;
     }
 
-    let results;
-
-    // Show default pages when empty
-    if (query === '') {
-        results = searchData.slice(0, 8);
-    } else {
-        results = searchData.filter(page => {
-            const matchesTitle =
-                page.title.toLowerCase().includes(query);
-
-            const matchesSnippet =
-                page.snippet.toLowerCase().includes(query);
-
-            const matchesTags =
-                page.tags.some(tag =>
-                    tag.toLowerCase().includes(query)
-                );
-
-            return matchesTitle ||
-                matchesSnippet ||
-                matchesTags;
+    const results = query === ''
+        ? searchData.slice(0, 8)
+        : searchData.filter(page => {
+            const matchesTitle   = page.title.toLowerCase().includes(query);
+            const matchesSnippet = String(page.snippet ?? '').toLowerCase().includes(query);
+            const matchesTags    = page.tags.some(tag => tag.toLowerCase().includes(query));
+            return matchesTitle || matchesSnippet || matchesTags;
         });
-    }
-
-    resultsContainer.innerHTML = '';
 
     if (results.length === 0) {
-        resultsContainer.innerHTML =
-            '<div style="padding:10px; font-size:12px; color:#999;">No pages found</div>';
+        resultsContainer.innerHTML = '<div style="padding:10px; font-size:12px; color:#999;">No pages found</div>';
         return;
     }
 
     const path = window.location.pathname;
     const rootEndIndex = path.indexOf('/Omni/');
-    const basePath =
-        rootEndIndex !== -1
-            ? path.substring(0, rootEndIndex + 6)
-            : '/';
+    const basePath = rootEndIndex !== -1 ? path.substring(0, rootEndIndex + 6) : '/';
 
-    results.forEach(page => {
-        const cleanPageUrl =
-            page.url.startsWith('/')
-                ? page.url.substring(1)
-                : page.url;
-
-        let categoriesHtml = '';
-        if (page.categories && page.categories.length > 0) {
-            const catSpans = page.categories
-                .map(cat => `<span class="wiki-cat">${cat}</span>`)
-                .join('');
-            categoriesHtml = `
-                <div class="wiki-categories">
-                    ${catSpans}
-                </div>
-            `;
-        }
-
-        resultsContainer.innerHTML += `
-            <a href="${basePath}${cleanPageUrl}" class="search-item">
-                <strong>${page.title}</strong>
-                <span>${page.snippet}</span>
-                ${categoriesHtml}
-            </a>
-        `;
-    });
+    resultsContainer.innerHTML = results.map(page => {
+        const cleanUrl = page.url.startsWith('/') ? page.url.substring(1) : page.url;
+        const catHtml = page.categories?.length
+            ? `<div class="wiki-categories">${page.categories.map(c => `<span class="wiki-cat">${c}</span>`).join('')}</div>`
+            : '';
+        return `<a href="${basePath}${cleanUrl}" class="search-item">
+            <strong>${page.title}</strong>
+            <span>${page.snippet ?? ''}</span>
+            ${catHtml}
+        </a>`;
+    }).join('');
 }
 
 // Start loading data immediately when the DOM is ready
