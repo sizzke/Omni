@@ -1,52 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plane Crazy Shredders | Armor Information </title>
     <link rel="stylesheet" href="../../css/style.css">
 </head>
+
 <body>
     <!-- nav bar FEELS AURA -->
     <nav class="navbar">
         <!--todo: add NSG logo :cold:-->
         <div class="logo"> Plane Crazy Shredder and Tech wiki</div>
         <ul class="nav-links">
-            <li><a href="../../index.html" >Home</a></li>
+            <li><a href="../../index.html">Home</a></li>
             <li><a href="../../pages/shredderhub.html">ShredderHub</a></li>
             <li><a href="../../pages/techmanifest.html">TechManifest</a></li>
             <div class="search-container">
-                <input type="text" id="wiki-search" placeholder="Search for TECH..." autocomplete="off" onfocus="runWikiSearch()" onkeyup="runWikiSearch()">
+                <input type="text" id="wiki-search" placeholder="Search for TECH..." autocomplete="off"
+                    onfocus="runWikiSearch()" onkeyup="runWikiSearch()">
                 <div id="wiki-results" class="search-results-box"></div>
             </div>
         </ul>
     </nav>
     <main class="wiki-container">
 
-    <h2>Overview of armoring</h2>
-              <div class="wiki-categories">
-       <span class="wiki-cat">Shredders</span>
-       <span class="wiki-cat">Module</span>
-   </div>
+        <h2>Overview of armoring</h2>
+        <div class="wiki-categories">
+            <span class="wiki-cat">Shredders</span>
+            <span class="wiki-cat">Module</span>
+        </div>
 
-      <nav class="wiki-breadcrumb">
-       <a href="/">Home</a> <a href="/pages/shredderhub.html">ShredderHub</a> <span>Template</span>
-   </nav>
-    <p>Armoring is the process of defending a weak point of your build from damage against cutters and weapons. Weapons are able to break blocks that defend against them and cutters are able to penetrate through armor, more or less efficiently depending on the shredder.</p>
-    <p>A generally good design is to increase the layers of protection between your core, and make blades have a lower chance of actually being able to clip through your armor. </p>
-    <nav class="toc-box">
-        <div class="toc-title">Contents</div>
-        <ul>
-            <li><a href="#Armor-Blocks">1 Armor blocks</a></li>
-            <li><a href="#Pushback">2 Pushback</a></li>
-            <li><a href="#Angling">3 Angling</a></li>
-        </ul>
-    </nav>
-    <hr>
+        <nav class="wiki-breadcrumb">
+            <a href="/">Home</a> <a href="/pages/shredderhub.html">ShredderHub</a> <span>Template</span>
+        </nav>
+        <p>Armoring is the process of defending a weak point of your build from damage against cutters and weapons.
+            Weapons are able to break blocks that defend against them and cutters are able to penetrate through armor,
+            more or less efficiently depending on the shredder.</p>
+        <p>A generally good design is to increase the layers of protection between your core, and make blades have a
+            lower chance of actually being able to clip through your armor. </p>
+        <nav class="toc-box">
+            <div class="toc-title">Contents</div>
+            <ul>
+                <li><a href="#Armor-Blocks">1 Armor blocks</a></li>
+                <li><a href="#Pushback">2 Pushback</a></li>
+                <li><a href="#Angling">3 Angling</a></li>
+            </ul>
+        </nav>
+        <hr>
 
-    <article id="Armor-Blocks">
-    <h2>Armor blocks</h2>
-        <p>Different blocks have different relative costs, health and efficency.</p>
+        <article id="Armor-Blocks">
+            <h2>Armor blocks</h2>
+            <p>Different blocks have different relative costs, health and efficency.</p>
             <div class="wiki-thumb thumb-right">
                 <div class="thumb-inner">
                     <img src="../../assests/armor_selection.png" alt="Different armors excluding the camera.">
@@ -55,58 +61,61 @@
                     </div>
                 </div>
             </div>
-        <p>For example, tnt has a higher relative cost and lower efficency than compressors. This is because compressors have no limit but can be broken from weapons and tnt has a limit of 200 blocks but cannot be broken. </p>
-        <p>Compressors can fill two blocks of space and be painted ice, which makes your core harder to hold onto.</p>
-        <p>Tnt blocks are only broken by unconventional weapons, tnt and lava spitters</p>
-        
-        <!--before anyone gets on me for this its like 11pm and i dont want to deal with making a cool looking table.... i swear,,,-->
-        <div class="table-responsive">
-            <table class="wiki-table">
-            <thead>
-                <!--delete later armor blocks are tnt compressor camera and ghosted cutters possibly add 1x7 .bro 1x7 sucks. later-->
-                <tr>
-                    <th>Block</th>
-                    <th>Invincible</th>
-                    <th>Visiblity</th>
-                    <th>Efficency</th>
-                    <th>Damaged by guns</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Tnt</strong></td>
-                    <td>Yes</td>
-                    <td>Yes</td>
-                    <td>Average</td>
-                    <td>Passed through (no)</td>
-                </tr>
-                <tr>
-                    <td><strong>Compressor</strong></td>
-                    <td>Yes</td>
-                    <td>Optional</td>
-                    <td><span style="color: var(--accent-blue);">High</span></td>
-                    <td>Yes with 5 hits</td>
-                </tr>
-                <tr>
-                    <td><strong>Camera (Deprecated)</strong></td>
-                    <td>Yes</td>
-                    <td>No</td>
-                    <td>Low</td>
-                    <td>Extremely low, bigger hitbox and one shot</td>
-                </tr>
-                <tr>
-                    <td><strong>Ghosted Cutter (Deprecated)</strong></td>
-                    <td>Yes</td>
-                    <td>No</td>
-                    <td>Low</td>
-                    <td>Yes (unknown)</td>
-                </tr>
-            </tbody>
-            </table>
-        </div>
-    </article>
-    <hr>
-    <section id="Pushback">
+            <p>For example, tnt has a higher relative cost and lower efficency than compressors. This is because
+                compressors have no limit but can be broken from weapons and tnt has a limit of 200 blocks but cannot be
+                broken. </p>
+            <p>Compressors can fill two blocks of space and be painted ice, which makes your core harder to hold onto.
+            </p>
+            <p>Tnt blocks are only broken by unconventional weapons, tnt and lava spitters</p>
+
+            <!--before anyone gets on me for this its like 11pm and i dont want to deal with making a cool looking table.... i swear,,,-->
+            <div class="table-responsive">
+                <table class="wiki-table">
+                    <thead>
+                        <!--delete later armor blocks are tnt compressor camera and ghosted cutters possibly add 1x7 .bro 1x7 sucks. later-->
+                        <tr>
+                            <th>Block</th>
+                            <th>Invincible</th>
+                            <th>Visiblity</th>
+                            <th>Efficency</th>
+                            <th>Damaged by guns</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Tnt</strong></td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Average</td>
+                            <td>Passed through (no)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Compressor</strong></td>
+                            <td>Yes</td>
+                            <td>Optional</td>
+                            <td><span style="color: var(--accent-blue);">High</span></td>
+                            <td>Yes with 5 hits</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Camera (Deprecated)</strong></td>
+                            <td>Yes</td>
+                            <td>No</td>
+                            <td>Low</td>
+                            <td>Extremely low, bigger hitbox and one shot</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ghosted Cutter (Deprecated)</strong></td>
+                            <td>Yes</td>
+                            <td>No</td>
+                            <td>Low</td>
+                            <td>Yes (unknown)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </article>
+        <hr>
+        <section id="Pushback">
             <div class="wiki-thumb thumb-right">
                 <div class="thumb-inner">
                     <img src="../../assests/pushback.png" alt="Pushback Demo">
@@ -115,17 +124,27 @@
                     </div>
                 </div>
             </div>
-        <h2>Pushback</h2>
-        <p>Pushback is whenever the hitbox of a part clips inside of the hitbox of another part and a force proportional to the model's size and mass is applied going from the center to the outside. What this means is that after clipping halfway through an armor block it tends to pull your blade inwards to the core, this can be counteracted by the usage of pushback manipulation via overlapping of differently sized blocks.</p>
-        <p><span style="color: var(--accent-blue);">Examples of pushback manipulation are:</span></p>
-        <p><h4>Overlapping armor to create stronger outwards pushback.</h4></p>
-        <p><h4>Filling inwards pushback with another block to neutralise it.</h4></p>
-       <p><h4>Using compressor blocks set to one compression to extend the distance of outwards pushback.</h4></p>
-    </section>
-    <hr> 
-    <section id="Angling">
-        <h2>Angling</h2>
-                    <div class="wiki-thumb thumb-right">
+            <h2>Pushback</h2>
+            <p>Pushback is whenever the hitbox of a part clips inside of the hitbox of another part and a force
+                proportional to the model's size and mass is applied going from the center to the outside. What this
+                means is that after clipping halfway through an armor block it tends to pull your blade inwards to the
+                core, this can be counteracted by the usage of pushback manipulation via overlapping of differently
+                sized blocks.</p>
+            <p><span style="color: var(--accent-blue);">Examples of pushback manipulation are:</span></p>
+            <p>
+            <h4>Overlapping armor to create stronger outwards pushback.</h4>
+            </p>
+            <p>
+            <h4>Filling inwards pushback with another block to neutralise it.</h4>
+            </p>
+            <p>
+            <h4>Using compressor blocks set to one compression to extend the distance of outwards pushback.</h4>
+            </p>
+        </section>
+        <hr>
+        <section id="Angling">
+            <h2>Angling</h2>
+            <div class="wiki-thumb thumb-right">
                 <div class="thumb-inner">
                     <img src="../../assests/angling.png" alt="Angling prof">
                     <div class="thumb-caption">
@@ -133,43 +152,47 @@
                     </div>
                 </div>
             </div>
-        <p>Angling uses basic physics to increase the effectiveness of your armor, having angles in your armor causes deflections and more thickness at certain angles. It is used in real life and other build types.</p>
-        <p>You should consider how much an angle deflects and how many armor blocks you need for it.</p>
-    </section>
-    <hr>
+            <p>Angling uses basic physics to increase the effectiveness of your armor, having angles in your armor
+                causes deflections and more thickness at certain angles. It is used in real life and other build types.
+            </p>
+            <p>You should consider how much an angle deflects and how many armor blocks you need for it.</p>
+        </section>
+        <hr>
     </main>
 
-<footer>
-    <div class="credits-container">
-        <!-- Main Team -->
-        <div class="credit-category">
-            <strong>Main Coder:</strong> 
-            <span>platform2 (759825779974209616)</span>
-        </div>
-        
-        <div class="credit-category">
-            <strong>Main Writer:</strong> 
-            <span>peacekeepe_r (850394478895300629), platform2 (759825779974209616)</span>
+    <footer>
+        <div class="credits-container">
+            <!-- Main Team -->
+            <div class="credit-category">
+                <strong>Main Coder:</strong>
+                <span>platform2 (759825779974209616)</span>
+            </div>
+
+            <div class="credit-category">
+                <strong>Main Writer:</strong>
+                <span>peacekeepe_r (850394478895300629), platform2 (759825779974209616)</span>
+            </div>
+
+            <!-- Writers & Contributors -->
+            <div class="credit-category">
+                <strong>Writers:</strong>
+                <span>killer_meetball., legallypvid</span>
+            </div>
+
+            <div class="credit-category">
+                <strong>Contributors:</strong>
+                <span>glitchedtm, kameon</span>
+            </div>
         </div>
 
-        <!-- Writers & Contributors -->
-        <div class="credit-category">
-            <strong>Writers:</strong> 
-            <span>killer_meetball., legallypvid</span>
-        </div>
+        <hr>
 
-        <div class="credit-category">
-            <strong>Contributors:</strong> 
-            <span>glitchedtm, kameon</span>
-        </div>
-    </div>
-    
-    <hr>
-    
-    <p>Made for the <a href="https://discord.gg/89gEYNR7zd" target="_blank" rel="noopener noreferrer">Neo Shredder Group Discord</a></p>
-</footer>
+        <p>Made for the <a href="https://discord.gg/89gEYNR7zd" target="_blank" rel="noopener noreferrer">Neo Shredder
+                Group Discord</a></p>
+    </footer>
 
     <script src="../../js/skidunited.js"></script>
 
 </body>
+
 </html>

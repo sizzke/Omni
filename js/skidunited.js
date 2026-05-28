@@ -7,7 +7,7 @@ let searchData = [];
 function initWikiSearch() {
     // 1. Get the current URL path (e.g., /Omni/pages/shreds/3x5gyro.html)
     const path = window.location.pathname;
-    
+
     // 2. Find where the project root stops. If 'Omni' isn't in the URL (like local server), default to '/'
     const rootEndIndex = path.indexOf('/Omni/');
     const basePath = rootEndIndex !== -1 ? path.substring(0, rootEndIndex + 6) : '/';
@@ -24,7 +24,7 @@ function initWikiSearch() {
         .catch(err => console.error("Error initializing search:", err));
 
     // Set up click listener to close dropdown when clicking outside
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         if (!e.target.closest('.search-container')) {
             const resultsContainer = document.getElementById('wiki-results');
             if (resultsContainer) resultsContainer.innerHTML = '';
@@ -70,8 +70,8 @@ function runWikiSearch() {
                 );
 
             return matchesTitle ||
-                   matchesSnippet ||
-                   matchesTags;
+                matchesSnippet ||
+                matchesTags;
         });
     }
 

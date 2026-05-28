@@ -32,7 +32,7 @@
     "tags": ["armor", "armorinfo", "pushback", "thickness", "angling", "armorlogic", "armor logic", "rigidity"],
     "snippet": "A comprehensive guide to armor info",
     "url": "pages/shreds/armorinfo.html",
-    "categories": ["Shredders", "Module"]
+    "categories": ["Shredders", "Armoring"]
   },
   {
     "title": "Massless",
@@ -45,7 +45,7 @@
     "title": "Void Tech",
     "tags": ["tech", "void", "surge"],
     "snippet": "Information on void tech and its abilites.",
-    "url": "pages/shreds/voidtech.html",
+    "url": "pages/tech/voidtech.html",
     "categories": ["Tech"]
   },
   {
@@ -100,14 +100,14 @@
   {
     "title": "Skeletonisation",
     "tags": ["weld", "welding", "skeleton", "skeletonisation", "angle", "compression", "invincible"],
-    "snippet": "",
+    "snippet": "Skeletonisation is the process of creating a structure that cannot be broken, reducing the weak points of a build to just the components",
     "url": "pages/shreds/skeletonisation.html",
     "categories": ["Shredders", "Functionality"]
   },
   {
-    "title": "health",
+    "title": "Health",
     "tags": ["weld", "welding", "skeleton", "skeletonisation", "angle", "compression", "invincible"],
-    "snippet": "",
+    "snippet": "Health is a measurement of how many hits your shredder can take without being destroyed.",
     "url": "pages/shreds/health.html",
     "categories": ["Shredders", "Enhancement"]
   },
