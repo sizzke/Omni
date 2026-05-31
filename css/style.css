@@ -74,12 +74,12 @@
     --text-muted: #999084;
 
     /* ── Links ── */
-    --link-color: #7dbdff;
+    --link-color: #6868d4;
     --link-hover: #9aceff;
     --link-visited: #b594ff;
 
     /* ── Accent colors ── */
-    --accent-blue: #7dbdff;
+    --accent-blue: #6868d4;
     --accent-green: #70e8b8;
     --accent-red: #ff8080;
     --accent-orange: #ffc56a;
@@ -1202,6 +1202,78 @@ section, article {
 }
 
 /* ═══════════════════════════════════════════
+   PAGE BACKGROUND IMAGE
+   Visible overlay — in front of body bg,
+   behind text content
+   ═══════════════════════════════════════════ */
+.wiki-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('/assests/pagebackground.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Push all wiki-container children above the background overlay */
+.wiki-container > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ═══════════════════════════════════════════
+   SIDE TRIANGLES (decorative, full-height)
+   Base spans the entire left / right edge
+   ═══════════════════════════════════════════ */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    width: 35vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.35;
+}
+
+/* Left triangle — base on left edge, apex points right */
+body::before {
+    left: 0;
+    clip-path: polygon(0% 0%, 0% 100%, 45% 50%);
+    /* 45° gradient: base (left) = purple, tip (right) = near-black */
+    background: linear-gradient(90deg, #6868d4 0%, #0a0a0f 35%);
+}
+
+/* Right triangle — base on right edge, apex points left */
+body::after {
+    right: 0;
+    clip-path: polygon(100% 0%, 100% 100%, 55% 50%);
+    /* 45° gradient: tip (left) = near-black, base (right) = purple */
+    background: linear-gradient(90deg, #0a0a0f 65%, #6868d4 100%);
+}
+
+/* Ensure navbar & footer render above the triangles */
+.navbar {
+    z-index: 100;
+    position: sticky;
+}
+
+footer {
+    position: relative;
+    z-index: 10;
+}
+
+.wiki-container {
+    position: relative;
+    z-index: 2;
+}
+
+/* ═══════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════ */
 @media (max-width: 768px) {
@@ -1248,5 +1320,19 @@ section, article {
 
     .wiki-gallery {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+
+    /* Smaller triangles on mobile */
+    body::before,
+    body::after {
+        opacity: 0.20;
+    }
+
+    body::before {
+        clip-path: polygon(0% 0%, 0% 100%, 30% 50%);
+    }
+
+    body::after {
+        clip-path: polygon(100% 0%, 100% 100%, 70% 50%);
     }
 }
