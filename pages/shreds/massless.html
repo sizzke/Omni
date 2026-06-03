@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    <!--A+ page-->
 
 <head>
     <meta charset="UTF-8">
@@ -15,7 +16,7 @@
     <main class="wiki-container">
         <!--hi its 10:54, god speed to the next man making this mamoth of a doc-->
         <!--hi my name is next man-->
-        <h2>Overview of Massless</h2>
+        <h1>Massless</h1>
         <div class="wiki-categories">
             <span class="wiki-cat">Shredders</span>
             <span class="wiki-cat">Functionality</span>
@@ -25,7 +26,7 @@
             <a href="/">Home</a> <a href="/pages/shredderhub.html">ShredderHub</a> <span>Massless</span>
         </nav>
         <p>Massless is a core function of shredders, without massless or the correct application of massless your <span
-                style="color: var(--accent-blue);">shredder will not work.</span> The most common case of this is new
+                style="color: var(--accent-blue);">shredder will not work properly.</span> The most common case of this is new
             players not locking their blade motor so if you're new please read <a href="#Staging-LockedMotor">1.2
                 Staging blade motors</a>.</p>
 
@@ -48,39 +49,55 @@
                 </ul>
             </ul>
         </nav>
-        <!--LINK HYPER M2 TO ITS PAGE-->
+
+
+        <h2>Massless Info</h2>
+        <p>Massless modules work when a few requirements are met:</p>
+        <h4>The motor2 has 100 torque or more.</h4>
+        <!--TODO: add link to firstchild and root part and assembly? we need these types of pages too-->
+        <!--also we can make all of our own pages on everything-->
+        <h4>The object to be made cannot be the root part of its assembly or firstchild of the root assembly, this can be easily manipulated by simply having the massless module be anchored.</h4>
+        <h4>The object to be made massless has a rotational velocity magnitude of 1 or more.</h4>
+        <p>Certain objects have a scripted immunity to massless. This includes the motor1 plate, motor2 plate, and a joint within wing panels that controls drag properties.</p>
+
+        <h3>Desync</h3>
+        <p>Due to a bug, massless can desynchronize any group of assemblies without a potential root part within itself and the motor2 that applied said massless.
+            This happens because whenever massless is applied it creates a local variable that stores all the blocks within the assembly it's trying to turn massless so it can check for the immune parts.
+            But this variable is never cleared, making it so the server views the massless module and the build as a single group.
+            This doesn't happen in the client and that results in a desync due to differences in which part is root part for each network end.</p>
+            <p>This can be easily overcomed by intentionally manipulating the root parts so it always makes your build contain the root part.
+                The simplest way is having some sort of mass within your build, since mass is the biggest determining factor for a root part.</p>
 
         <section id="#Staging"></section>
         <h2>Staging</h2>
         <section id="#Staging-Constraints"></section>
         <h3>Staging Constraints</h3>
-        Massless does not spread to other assemblies (pieces of your build seperated by constraints), so you have to
-        temporarily weld them together with certain blocks. This is especially necessary when using Hyper M2s because
-        your motor twos will not spread massless with below 100 torque. Even with non hyper motors, it is sometimes
-        needed.
+        <p>Massless </strong>does not spread to other assemblies</strong> (separate sections of your build, usually separated by constraints) that are not separated by balljoints, so you have to temporarily weld them together with <strong>staging blocks</strong>. It is sometimes needed to allow your build to spawn correctly too.</p>
 
 
         <p>Springs are the most commonly used staging block, it leaves no welds behind as long as you dont weld the top
             or bottom to the build. The only issue is getting stuck within the build and having to be flung out.</p>
         <p>Disconnectors also work for staging, but leave behind a non collide part on the build.</p>
-        <p>Tnt is considered deprecated because of a bug that breaks tnt when placed on a shredder, making it unable to
-            stage. (For ghosting rockets you must add a motor and place the tnt ontop.)</p>
+        <p>Tnt is able to stage without leaving anything behind, deleting itself. The radius or pressure should be set to 0.</p>
+                <div class="callout callout-note">
+            <strong>NOTE:</strong>Tnt on shredders will likely not work due to a bug related to compressors and angles somehow breaking tnt.
+        </div>
 
 
 
         <section id="#Staging-LockedMotor"></section>
         <h3>Staging Blade Motors</h3>
-        <p>Blades also require welding, or massless will not apply. This can simply be fixed by locking
-            <strong>all</strong> blade motors. This used to be done with staging blocks but this is not necessary. Also,
-            your blade motor will still have mass, so do not have it too far out or your shredder will wobble.
-        </p>
+        <p>Blades also require staging, or massless will not spread through the constraint seperating the two assemblies. This can simply be fixed by locking the motor1 (if you have multiple it is advised to lock all of them).</p>
+        <div class="callout callout-note">
+            <strong>NOTE:</strong>Your blade's motor1 plate will still have mass, so do not place it too far away from your core or your shredder will wobble.
+        </div>
+
         <section id="#Staging-MassGyro"></section>
         <h3>Preventing Massless Gyros</h3>
-        <p>Gyros will break when massless is applied to them directly, because their strength is based off of their
-            mass. To fix this you must place a locked and toggle motor below the gyros, and weld both ends of your
-            massless module's motor two together with staging blocks.</p>
-        <p>After you spawn in, unlock the motor, unweld the motor two, lock the motor.</p>
-
+        <p>Gyros will be <strong>severely weakened</strong> when massless is applied to them, because their strength is <strong>proportional to their
+            mass</strong>. To fix this you should place a lock and toggle motor1 below the gyros, and connect both ends of your
+            massless module's motor2 together with staging blocks.</p>
+        <p>After you spawn in, unlock the motor, unweld the motor2, lock the motor. You can simply just set the locked motor and staging blocks to the same keybind, and then press it twice.</p>
         <section id="#Modules"></section>
         <h2>Massless Modules</h2>
         <section id="#Modules-balljoint"></section>
@@ -95,10 +112,6 @@
         </div>
         <p>This module is an advancement of the three block massless, it has the ability to make anchored assemblies
             massless.</p>
-        <p>Massless modules work through making a motor two rotate the entire build, which applies massless to the
-            entire thing.</p>
-        <p>To prevent massless desync, you must add an assembly that is not welded to the shredder. This can be easily
-            done by adding a motor two with 100+ torque, less than 100 will make the m2 totally massless.</p>
 
         <section id="#Modules-normal"></section>
         <div class="wiki-thumb thumb-right">
@@ -111,7 +124,7 @@
         </div>
         <h3>Three Block Massless (deprecated)</h3>
         <p>It was figured out that a massless module could just be reduced down to three blocks, using an anchor to make
-            it the rootpart and then a motor two to rotate the build and apply massless.</p>
+            it the rootpart and then a motor2 to rotate the build and apply massless.</p>
 
 
         <section id="#Staging-unc"></section>
