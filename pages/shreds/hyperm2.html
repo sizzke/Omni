@@ -13,54 +13,41 @@
     <main class="wiki-container">
 
         <div class="callout callout-note">
-            <strong>NOTE:</strong> PLACEHOLDER
+            <strong>NOTE:</strong> Hyper-m2's are only a configuration.
+        </div>
+        <div class="callout callout-note">
+            <strong>RICKJE:</strong> Plz dont patch this
         </div>
 
-        <h2>Overview of X</h2>
+        <h1>Overview of Hyper-m2's</h1>
+        <div class="wiki-thumb thumb-right">
+            <div class="thumb-inner">
+                <iframe width="290" height="315"
+                    src="https://www.youtube-nocookie.com/embed/L8S2P_i76zk?si=sm4g9mBGeJ75pusT"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="thumb-caption">99.9M Torque HYPER Motor2 Tutorial by the shredder refinery</div>
+            </div>
+        </div>
         <div class="wiki-categories">
             <span class="wiki-cat">Shredders</span>
             <span class="wiki-cat">Enhancement</span>
         </div>
 
         <nav class="wiki-breadcrumb">
-            <a href="/">Home</a> <a href="/pages/shredderhub.html">ShredderHub</a> <span>Template</span>
+            <a href="/">Home</a> <a href="/pages/shredderhub.html">ShredderHub</a> <span>Hyper-m2</span>
         </nav>
 
-        <p>Stuff</p>
 
 
-        <div class="wiki-last-edited">Last edited on 20.05.26 by peacekeepe_r</div>
-
-        <nav class="toc-box">
-            <div class="toc-title">Contents</div>
-            <ul>
-                <li>
-                    <a href="#Stuff">1 Stuff</a>
-                    <ul>
-                        <li><a href="#stuff2">1.1 stuff</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-
-        <div class="wiki-thumb thumb-right">
-            <div class="thumb-inner">
-                <img src="../../assests/3x5.png" alt="Anchorfling Void, Hypersurge.">
-                <div class="thumb-caption">
-                    Image.
-                </div>
-            </div>
-        </div>
-
-        <section id="Stuff"></section>
-        <h2>Stuff</h2>
-
-        <section id="stuff2"></section>
-        <h3>stuff2</h3>
-
-
-
-
+        <p>Hyper Motor twos are a very simple bug to use, you simply due to a 3 liner in the code</p>
+        <p> if maxTorque < 100 then <br>
+                hinge.AngularResponsiveness=tolerance * 10 <br>
+                hinge.ServoMaxTorque=maxTorque * 10000000 <br>
+        </p>
+        <p>Because of these three lines it makes it so the 99.999 torque you wouldve put in orginally gets turned into
+            999990000. The tolerance also gets increased, increasing the amount of actually transfered torque. </p>
 
 
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!--A+ page-->
+<!--A+ page-->
 
 <head>
     <meta charset="UTF-8">
@@ -25,8 +25,9 @@
         <nav class="wiki-breadcrumb">
             <a href="/">Home</a> <a href="/pages/shredderhub.html">ShredderHub</a> <span>Massless</span>
         </nav>
-        <p>Massless is a core function of shredders, without massless or the correct application of massless your <span
-                style="color: var(--accent-blue);">shredder will not work properly.</span> The most common case of this is new
+        <p>Massless is a core function of shredders, without massless or the correct application of massless the common <span
+                style="color: var(--accent-blue);">shredder will not work properly.</span> The most common case of this
+            is new
             players not locking their blade motor so if you're new please read <a href="#Staging-LockedMotor">1.2
                 Staging blade motors</a>.</p>
 
@@ -52,52 +53,72 @@
 
 
         <h2>Massless Info</h2>
+        <!--TOOD: ADD A CODEBLOCK POSSIBLY? AND SITE MOTOR2 MASSLESS CODE.-->
         <p>Massless modules work when a few requirements are met:</p>
         <h4>The motor2 has 100 torque or more.</h4>
         <!--TODO: add link to firstchild and root part and assembly? we need these types of pages too-->
         <!--also we can make all of our own pages on everything-->
-        <h4>The object to be made cannot be the root part of its assembly or firstchild of the root assembly, this can be easily manipulated by simply having the massless module be anchored.</h4>
+        <h4>The object to be made cannot be the root part of its assembly or firstchild of the root assembly, this can
+            be easily manipulated by simply having the massless module be anchored.</h4>
         <h4>The object to be made massless has a rotational velocity magnitude of 1 or more.</h4>
-        <p>Certain objects have a scripted immunity to massless. This includes the motor1 plate, motor2 plate, and a joint within wing panels that controls drag properties.</p>
+        <p>Certain objects have a scripted immunity to massless. This includes the motor1 plate, motor2 plate, and a
+            joint within wing panels that controls drag properties.</p>
 
         <h3>Desync</h3>
-        <p>Due to a bug, massless can desynchronize any group of assemblies without a potential root part within itself and the motor2 that applied said massless.
-            This happens because whenever massless is applied it creates a local variable that stores all the blocks within the assembly it's trying to turn massless so it can check for the immune parts.
-            But this variable is never cleared, making it so the server views the massless module and the build as a single group.
-            This doesn't happen in the client and that results in a desync due to differences in which part is root part for each network end.</p>
-            <p>This can be easily overcomed by intentionally manipulating the root parts so it always makes your build contain the root part.
-                The simplest way is having some sort of mass within your build, since mass is the biggest determining factor for a root part.</p>
+        <p>Due to a bug, massless can desynchronize any group of assemblies without a potential root part within itself
+            and the motor2 that applied said massless.
+            This happens because whenever massless is applied it creates a local variable that stores all the blocks
+            within the assembly it's trying to turn massless so it can check for the immune parts.
+            But this variable is never cleared, making it so the server views the massless module and the build as a
+            single group.
+            This doesn't happen in the client and that results in a desync due to differences in which part is root part
+            for each network end.</p>
+        <p>This can be easily overcomed by intentionally manipulating the root parts so it always makes your build
+            contain the root part.
+            The simplest way is having some sort of mass within your build, since mass is the biggest determining factor
+            for a root part.</p>
 
         <section id="#Staging"></section>
         <h2>Staging</h2>
         <section id="#Staging-Constraints"></section>
         <h3>Staging Constraints</h3>
-        <p>Massless </strong>does not spread to other assemblies</strong> (separate sections of your build, usually separated by constraints) that are not separated by balljoints, so you have to temporarily weld them together with <strong>staging blocks</strong>. It is sometimes needed to allow your build to spawn correctly too.</p>
+        <p>Massless </strong>does not spread to other assemblies</strong> (separate sections of your build, usually
+            separated by constraints) that are not separated by balljoints, so you have to temporarily weld them
+            together with <strong>staging blocks</strong>. It is sometimes needed to allow your build to spawn correctly
+            too.</p>
 
 
         <p>Springs are the most commonly used staging block, it leaves no welds behind as long as you dont weld the top
             or bottom to the build. The only issue is getting stuck within the build and having to be flung out.</p>
         <p>Disconnectors also work for staging, but leave behind a non collide part on the build.</p>
-        <p>Tnt is able to stage without leaving anything behind, deleting itself. The radius or pressure should be set to 0.</p>
-                <div class="callout callout-note">
-            <strong>NOTE:</strong>Tnt on shredders will likely not work due to a bug related to compressors and angles somehow breaking tnt.
+        <p>Tnt is able to stage without leaving anything behind, deleting itself. The radius or pressure should be set
+            to 0.</p>
+        <div class="callout callout-note">
+            <strong>NOTE:</strong>Tnt on shredders will likely not work due to a bug related to compressors and angles
+            somehow breaking tnt.
         </div>
 
 
 
         <section id="#Staging-LockedMotor"></section>
         <h3>Staging Blade Motors</h3>
-        <p>Blades also require staging, or massless will not spread through the constraint seperating the two assemblies. This can simply be fixed by locking the motor1 (if you have multiple it is advised to lock all of them).</p>
+        <p>Blades also require staging, or massless will not spread through the constraint seperating the two
+            assemblies. This can simply be fixed by locking the motor1 (if you have multiple it is advised to lock all
+            of them).</p>
         <div class="callout callout-note">
-            <strong>NOTE:</strong>Your blade's motor1 plate will still have mass, so do not place it too far away from your core or your shredder will wobble.
+            <strong>NOTE:</strong>Your blade's motor1 plate will still have mass, so do not place it too far away from
+            your core or your shredder will wobble.
         </div>
 
         <section id="#Staging-MassGyro"></section>
         <h3>Preventing Massless Gyros</h3>
-        <p>Gyros will be <strong>severely weakened</strong> when massless is applied to them, because their strength is <strong>proportional to their
-            mass</strong>. To fix this you should place a lock and toggle motor1 below the gyros, and connect both ends of your
+        <p>Gyros will be <strong>severely weakened</strong> when massless is applied to them, because their strength is
+            <strong>proportional to their
+                mass</strong>. To fix this you should place a lock and toggle motor1 below the gyros, and connect both
+            ends of your
             massless module's motor2 together with staging blocks.</p>
-        <p>After you spawn in, unlock the motor, unweld the motor2, lock the motor. You can simply just set the locked motor and staging blocks to the same keybind, and then press it twice.</p>
+        <p>After you spawn in, unlock the motor, unweld the motor2, lock the motor. You can simply just set the locked
+            motor and staging blocks to the same keybind, and then press it twice.</p>
         <section id="#Modules"></section>
         <h2>Massless Modules</h2>
         <section id="#Modules-balljoint"></section>
