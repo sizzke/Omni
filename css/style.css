@@ -116,6 +116,9 @@ body {
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 ::selection {
@@ -135,7 +138,7 @@ body {
     border-bottom: 2px solid var(--accent-blue);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
     position: sticky;
-    top: 0;
+    top: 10;
     z-index: 100;
 }
 
@@ -155,32 +158,40 @@ body {
     gap: 0.25rem;
 }
 
-.nav-links a {
+.nav-links > li > a {
+    display: flex;
+    align-items: center;
+    height: 34px;
     font-family: var(--font-ui);
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--text-secondary);
     text-decoration: none;
-    padding: 0.35rem 0.7rem;
-    border-radius: 3px;
-    transition: color 0.15s var(--ease-out), background-color 0.15s var(--ease-out);
+    padding: 0 0.7rem;
+    border-radius: 4px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-medium);
+    transition: color 0.15s var(--ease-out), background-color 0.15s var(--ease-out), border-color 0.15s var(--ease-out);
 }
 
-.nav-links a:hover {
+.nav-links > li > a:hover {
     color: var(--text-bright);
     background-color: rgba(0, 47, 129, 0.08);
+    border-color: var(--accent-blue);
 }
 
-.nav-links a.active {
+.nav-links > li > a.active {
     color: var(--accent-blue);
     background-color: rgba(0, 47, 129, 0.1);
+    border-color: var(--accent-blue);
 }
 
 /* ═══════════════════════════════════════════
    MAIN CONTENT AREA
    ═══════════════════════════════════════════ */
 .wiki-container {
-    max-width: 960px;
+    width: 90%;
+    max-width: 1200px;
     margin: 1.5rem auto;
     padding: 2rem 2.5rem;
     background-color: var(--bg-content);
@@ -323,6 +334,8 @@ blockquote {
     border: 1px solid var(--border-light);
     border-radius: 4px;
     transition: border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
@@ -342,7 +355,7 @@ blockquote {
 .card p {
     font-size: 0.85rem;
     color: var(--text-secondary);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.8rem;
 }
 
 .card a {
@@ -350,6 +363,7 @@ blockquote {
     font-size: 0.8rem;
     font-weight: 500;
     color: var(--accent-green);
+    margin-top: auto;
 }
 
 .card a:hover {
@@ -653,7 +667,7 @@ footer {
     background-color: var(--bg-footer);
     text-align: center;
     padding: 1.25rem 2rem;
-    margin-top: 0;
+    margin-top: auto;
     border-top: 2px solid var(--border-light);
     color: var(--text-muted);
     font-size: 0.78rem;
@@ -685,14 +699,16 @@ footer strong {
    ═══════════════════════════════════════════ */
 .search-container {
     position: relative;
-    display: inline-block;
+    display: flex;
+    align-items: center;
 }
 
 #wiki-search {
     font-family: var(--font-ui);
     font-size: 0.82rem;
     width: 200px;
-    padding: 0.35rem 0.6rem;
+    height: 34px;
+    padding: 0 0.6rem;
     border-radius: 3px;
     border: 1px solid var(--border-medium);
     background-color: var(--bg-surface);
@@ -1328,4 +1344,43 @@ footer {
     body::after {
         clip-path: polygon(100% 0%, 100% 100%, 70% 50%);
     }
+}
+
+/* ═══════════════════════════════════════════
+   SCROLLBAR CUSTOMIZATION
+   ═══════════════════════════════════════════ */
+
+/* Firefox support */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-medium) var(--bg-body);
+}
+
+/* Webkit browser support (Chrome, Safari, Edge, Opera) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-body);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-medium);
+    border-radius: 4px;
+    border: 2px solid var(--bg-body);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-blue);
+}
+
+/* Specific scrollbar styling for search results box */
+.search-results-box::-webkit-scrollbar-track {
+    background: var(--bg-surface);
+}
+
+.search-results-box::-webkit-scrollbar-thumb {
+    border: 2px solid var(--bg-surface);
 }
