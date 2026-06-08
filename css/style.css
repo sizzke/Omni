@@ -1,13 +1,6 @@
 /* My name is claude, I will end everyone involved with this project if you ask me to "please fix text padding idk how to add padding" again.*/
 
 @font-face {
-    font-family: 'TerminusWiki';
-    src: url('/fonts/terminus.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'JetBrains Mono';
     src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
     font-weight: 400;
