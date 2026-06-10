@@ -23,7 +23,7 @@
             <a href="/">Home</a> <a href="/pages/shredderhub.html">ShredderHub</a> <span>Blades</span>
         </nav>
 
-        <p>Blades are what makes a shredder a shredder, that is why this page is important. Blades have a few factors
+        <p>Blades and their design influence how much damage your shredder can output. Blades have a few factors
             for being good, mainly Spacing and CE. This page has information on many things related to blades.</p>
         <nav class="toc-box">
             <div class="toc-title">Contents</div>
@@ -33,30 +33,28 @@
                     <ul>
                         <li><a href="#Hover-engines">1.1 Spaced CS</a></li>
                         <li><a href="#Rocket-engines">1.2 Sinusoid</a></li>
-                        <li><a href="#Angled-Rockets">1.3 CS (deprecated)</a></li>
-                        <li><a href="#Angled-Rockets">1.4 Spacing</a></li>
-                        <li><a href="#Angled-Rockets">1.5 Efficiency</a></li>
-                        <li><a href="#Angled-Rockets">1.6 Area Coverage</a></li>
+                        <li><a href="#Angled-Rockets">1.3 Density</a></li>
+                        <li><a href="#Angled-Rockets">1.4 Efficiency</a></li>
+                        <li><a href="#Angled-Rockets">1.5 Area Coverage</a></li>
                     </ul>
                 </li>
                 <li><a href="#Acceleration">2 Cutter Rules</a></li>
                 <ul>
-                    <li><a href="#Hover-engines">1.1 Minimum distance</a></li>
-                    <li><a href="#Rocket-engines">1.2 Maximum speed</a></li>
-                    <li><a href="#Angled-Rockets">1.3 Pingspiking</a></li>
+                    <li><a href="#Hover-engines">1.1 Minimum Distance</a></li>
+                    <li><a href="#Rocket-engines">1.2 Maximum Speed</a></li>
+                    <li><a href="#Rocket-engines">1.3 Damage per Second</a></li>
+                    <li><a href="#Angled-Rockets">1.4 Pingspiking</a></li>
                 </ul>
                 <li><a href="#Skybounce">3 CE/Demean</a></li>
                 <ul>
                     <li><a href="#Hover-engines">1.1 Values</a></li>
                     <li><a href="#Rocket-engines">1.2 Functionality</a></li>
-                    <li><a href="#Angled-Rockets">1.3 CS</a></li>
                 </ul>
             </ul>
         </nav>
         <section id="skelop"></section>
         <h2>Blade Design</h2>
-        <p>Blade design is the general design of a shredders blade, the pattern and logic. This will show the 3 main
-            types of blade designs that were made and also some principles of blade design.</p>
+        <p>Blade design is the general design of a shredders blade, the pattern and logic. The principles of blade design are density, efficiency, and area coverage. Following these will produce a better blade.</p>
         <h3>Modern Spaced CS</h3>
         <div class="wiki-thumb thumb-right">
             <div class="thumb-inner">
@@ -71,7 +69,9 @@
             to pingspikes, spaced well, covers alot of area, block efficient, and deals high damage.</p>
         <p>There are a few variants, most simply cut down the sides of the blade shape from four to three or two. Two
             sides, flat blades, are considered to not actually cover as much area and also require a lot of speed to
-            actually rotate properly.(30pi).</p>
+            actually rotate properly (30pi).</p>
+            
+        <div style="height: 20px;"></div>
         <h3>Sinusoid</h3>
         <div class="wiki-thumb thumb-right">
             <div class="thumb-inner">
@@ -85,32 +85,37 @@
             very efficient use of cutters. However, spaced cs is typically much better.</p>
         <p>A mistake people make when using this type of blade is creating a helix, stacking the pattern to make two
             sinusoids. This uses way too many blocks and can make the blade dense enough to be pingspiked.</p>
-        <div style="height: 50px;"></div>
-        <h3>Old CS (deprecated)</h3>
-        <div class="wiki-thumb thumb-right">
-            <div class="thumb-inner">
-                <img src="../../assests/csblade.png" alt="a">
-                <div class="thumb-caption">
-                    CS Blade.
-                </div>
-            </div>
-        </div>
-        <p>This was the main type of blade from early forks, up until sinusoids. Before compression it would simply snap
-            in half from damage. It was used on ogs and gyros, and was upgraded to cover more area by being slightly
-            spaced when compression was added.</p>
-        <h2>Zippering</h2>
-        <p>Zippering is when you use the drag tool to create welds with an angle block while also bringing the welded
-            pieces to wherever the angle lock is last placed. When used right, it can save many blocks.</p>
+        
+        <h3>Density</h3>
+        <p></p>
+        <h3>Efficiency</h3>
+        <p></p>
+        <h3>Area Coverage</h3>
+        <p></p>
 
-        <section id="balance"></section>
-        <h2>Balancing Stats</h2>
-        <p>Balancing your shredder is necessary when working with limited blocks. For example, if you put everything
-            into speed and not armor, if you add armor you will be too laggy.</p>
-        <section id="bladedes"></section>
-        <h2>Blade Design</h2>
-        <p>Blade design can help with optimisation, as its something that uses a lot of blocks. Try keeping your blade
-            to a maximum of 80 blocks, and spacing out your cutters to be more efficiently used. This has more benefits
-            than just optimisation too, which can be seen in blade design.</p>
+        <div style="height: 80px;"></div>
+
+        <h2>Cutter Rules</h2>
+        <p>Cutter blocks follow a set of rules, both scripted and naturally occouring.</p>
+        <h3>Minimum Distance</h3>
+        <p>Cutters have a minimum distance rule, this prevents redundant cutters and side by side cutters.</p>
+        <h3>Maximum Speed</h3>
+        <p>Cutters have limits to the speed where they can still function. The first cause of this is ping, this is from the serverside and clientside hitbox being more and more offset the higher the speed is.
+        This, combined with serverside damage checks for cutters, makes ping heavily determine the effectiveness of cutters.
+        </p>
+        <p>The second cause is a speed limit, cutters eventually stop working at thousands of SPS.</p>
+        <h3>Damage per Second</h3>
+        <p>When a cutter deals damage, it deactivates for 0.1 seconds. This prevents cutters from just dealing infinite damage and instantly pingspiking.</p>
+        <h3>Pingspiking</h3>
+        <p>When your cutters interact with an excessive amount of blocks, affected by density of blade and target, your ping can spike up to ~200,000 milliseconds or more. This causes you to freeze on the server but not your client. You can move but your hitbox will stay in one place on the server which allows for people to kill your shredder.</p>
+
+        <h2>CE/Demean</h2>
+        <p></p>
+        <h3>Values</h3>
+        <p></p>
+        <h3>Functionality</h3>
+        <p></p>
+
     </main>
     <footer id="wiki-footer"></footer>
 
