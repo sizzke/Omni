@@ -1556,3 +1556,18 @@ footer {
   /* Optional: Keeps pixel art sharp if your GIF uses retro sprites */
 
 }
+.wiki-keyword-reveal {
+  color: #6868d4;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+
+.wiki-keyword-glow {
+  font-weight: 600; /* Slightly thicker than normal text */
+  color: #e6e6ff;   /* Soft lavender-white text so it pops against dark themes */
+  
+  /* A single, low-positioned shadow that acts as a floor underline glow */
+  text-shadow: 0 3px 6px rgba(104, 104, 212, 0.7);
+}
