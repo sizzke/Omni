@@ -55,24 +55,97 @@ function buildNav() {
     };
 
     placeholder.outerHTML = `
-<nav class="navbar"> 
+<header class="navbar" aria-label="Site header">
   <div class="logo">
-    <h2 class="wiki-ambient-reflection">
-      <a href="${wikiUrl('index.html')}" style="text-decoration: none; color: inherit;">Plane Crazy Shredder and Tech wiki</a>
-    </h2>
-  </div> 
+    <a href="${wikiUrl('index.html')}" class="wiki-brand">
+      <img src="${wikiUrl('assests/nsg-logo.png')}" alt="NSG logo" class="wiki-brand-logo" width="38" height="38">
+      <span class="wiki-site-logo">Neo Shredder Group WIKI</span>
+    </a>
+  </div>
   <div class="nav-right">
-    <ul class="nav-links"> 
-      ${link('index.html', 'Home')} 
-      ${link('pages/shredderhub.html', 'ShredderHub')} 
-      ${link('pages/techmanifest.html', 'TechManifest')} 
-    </ul> 
-    <div class="search-container"> 
-      <input type="text" id="wiki-search" placeholder="Search for TECH..." autocomplete="off"> 
-      <div id="wiki-results" class="search-results-box"></div> 
+    <ul class="nav-links">
+      ${link('index.html', 'Main Page')}
+      ${link('pages/shredderhub.html', 'ShredderHub')}
+      ${link('pages/techmanifest.html', 'TechManifest')}
+    </ul>
+    <div class="search-container">
+      <input type="text" id="wiki-search" placeholder="Search wiki..." autocomplete="off" aria-label="Search wiki">
+      <div id="wiki-results" class="search-results-box" role="listbox"></div>
     </div>
   </div>
-</nav>`;
+</header>`;
+}
+
+function buildSidebar() {
+    if (document.getElementById('wiki-sidebar')) return;
+
+    const main = document.querySelector('main.wiki-container');
+    if (!main) return;
+
+    const p = window.location.pathname;
+    const sideLink = (href, label) => {
+        const url = wikiUrl(href);
+        const cls = (p === url || p.endsWith(href)) ? ' class="active"' : '';
+        return `<li><a href="${url}"${cls}>${label}</a></li>`;
+    };
+
+    const sidebar = document.createElement('aside');
+    sidebar.id = 'wiki-sidebar';
+    sidebar.className = 'wiki-sidebar';
+    sidebar.setAttribute('aria-label', 'Site navigation');
+    sidebar.innerHTML = `
+<div class="wiki-sidebar-block">
+  <div class="wiki-sidebar-head">Navigation</div>
+  <ul>
+    ${sideLink('index.html', 'Main Page')}
+    ${sideLink('pages/shredderhub.html', 'ShredderHub')}
+    ${sideLink('pages/techmanifest.html', 'TechManifest')}
+    ${sideLink('registery.html', 'Registry')}
+  </ul>
+</div>
+<div class="wiki-sidebar-block">
+  <div class="wiki-sidebar-head">Shredder Modules</div>
+  <ul>
+    ${sideLink('pages/shreds/massless.html', 'Massless')}
+    ${sideLink('pages/shreds/gyrocore.html', 'Gyro Cores')}
+    ${sideLink('pages/shreds/armorinfo.html', 'Armor Info')}
+    ${sideLink('pages/shreds/blades.html', 'Blades')}
+    ${sideLink('pages/shreds/movementmechanics.html', 'Movement')}
+  </ul>
+</div>
+<div class="wiki-sidebar-block">
+  <div class="wiki-sidebar-head">Toolbox</div>
+  <ul>
+    <li><a href="${wikiUrl('pages/misc/TemplateAI.html')}">Article Template</a></li>
+    <li><a href="https://discord.gg/89gEYNR7zd" target="_blank" rel="noopener noreferrer">Discord</a></li>
+  </ul>
+</div>`;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'wiki-page-wrap';
+
+    const column = document.createElement('div');
+    column.className = 'wiki-content-column';
+
+    main.parentNode.insertBefore(wrap, main);
+    wrap.appendChild(sidebar);
+    column.appendChild(main);
+    wrap.appendChild(column);
+}
+
+function buildSiteNotice() {
+    const path = window.location.pathname;
+    const homeUrl = wikiUrl('index.html');
+    const isHomePage = path === homeUrl || path.endsWith('index.html') || path.endsWith('/');
+    if (!isHomePage) return;
+
+    const main = document.querySelector('main.wiki-container');
+    if (!main || main.querySelector('.wiki-site-notice')) return;
+
+    const notice = document.createElement('div');
+    notice.className = 'wiki-site-notice';
+    notice.innerHTML = '<strong>Neo Shredder Group WIKI</strong> — Plane Crazy shredder &amp; tech documentation. Read the rules, hate all omnis responsibly.';
+    main.insertBefore(notice, main.firstChild);
 }
 
 // ═══════════════════════════════════════════
@@ -93,6 +166,10 @@ function buildFooter() {
         <div class="credit-member">
             <span class="member-name">peacekeepe_r (850394478895300629)</span>
             <small class="credit-note">Main writer, main design, minor coding.</small>
+        </div>
+        <div class="credit-member">
+            <span class="member-name">killer_meetball. (1457422090688008381)</span>
+            <small class="credit-note">Optimzed whole Wiki, Redesigned whole Wiki.</small>
         </div>
     </div>
 
@@ -134,10 +211,6 @@ function buildFooter() {
             <div class="credit-member">
                 <span class="member-name">glitchedtm</span>
                 <small class="credit-note">Natural Selection.</small>
-            </div>
-            <div class="credit-member">
-                <span class="member-name">killer_meetball.</span>
-                <small class="credit-note">Tech info, minor writing.</small>
             </div>
             <div class="credit-member">
                 <span class="member-name">legallypvid</span>
@@ -257,6 +330,8 @@ function runWikiSearch() {
 
 document.addEventListener('DOMContentLoaded', function () {
     buildNav();
+    buildSidebar();
+    buildSiteNotice();
     buildFooter();
     initWikiSearch();
 
