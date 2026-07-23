@@ -1,63 +1,94 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-    --font-body: 'JetBrains Mono', 'TerminusWiki', 'Consolas', 'Courier New', monospace;
-    --font-heading: 'JetBrains Mono', 'TerminusWiki', 'Consolas', monospace;
-    --font-ui: 'JetBrains Mono', 'TerminusWiki', 'Consolas', monospace;
+    --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-heading: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-ui: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Consolas', monospace;
 
-    /* ── Original purple palette (slightly boosted) ── */
-    --purple-primary: #7575e0;
-    --purple-secondary: #5858c8;
-    --purple-light: #a8b8ff;
-    --purple-soft: #c4c4ff;
-    --purple-muted: rgba(104, 104, 212, 0.2);
-    --purple-subtle: rgba(104, 104, 212, 0.11);
-    --purple-glow: rgba(104, 104, 212, 0.42);
+    /* ── Neutral monochrome palette ── */
+    --purple-primary: #ffffff;
+    --purple-secondary: #ffffff;
+    --purple-light: #ffffff;
+    --purple-soft: #ffffff;
+    --purple-muted: rgba(255, 255, 255, 0.12);
+    --purple-subtle: rgba(255, 255, 255, 0.06);
+    --purple-glow: rgba(255, 255, 255, 0.18);
 
-    --bg-body: #0c0a14;
-    --bg-content: #12101c;
-    --bg-surface: #181624;
-    --bg-navbar: #0e0c16;
-    --bg-footer: #0a0812;
-    --bg-sidebar: #12101c;
-    --bg-block-head: #1e1a32;
+    --bg-body: #000000;
+    --bg-content: #060606;
+    --bg-surface: #080808;
+    --bg-navbar: #040404;
+    --bg-footer: #020202;
+    --bg-sidebar: #060606;
+    --bg-block-head: #0a0a0a;
 
-    --border-subtle: #2e2a3a;
-    --border-light: #322e48;
-    --border-medium: #454066;
-    --border-bright: #5c5680;
+    --border-subtle: #1a1a1a;
+    --border-light: #222222;
+    --border-medium: #2e2e2e;
+    --border-bright: #404040;
 
-    --text-main: #e4e0ec;
-    --text-bright: #f2f0fa;
-    --text-secondary: #c0b8d0;
-    --text-muted: #9a92ac;
+    --text-main: #ffffff;
+    --text-bright: #ffffff;
+    --text-secondary: #ffffff;
+    --text-muted: #ffffff;
 
-    --link-color: #7a7ae8;
-    --link-hover: #aeb8ff;
-    --link-visited: #c4a8ff;
+    --link-color: #ffffff;
+    --link-hover: #ffffff;
+    --link-visited: #ffffff;
 
-    --accent-blue: #7575e0;
-    --accent-green: #70e8b8;
-    --accent-red: #ff8080;
-    --accent-orange: #ffc56a;
-    --accent-cyan: #6ee2e2;
-    --accent-purple: #b594ff;
+    --accent-blue: #ffffff;
+    --accent-green: #ffffff;
+    --accent-red: #ffffff;
+    --accent-orange: #ffffff;
+    --accent-cyan: #ffffff;
+    --accent-purple: #ffffff;
 
-    --bg-tip: #0b1a12;
-    --bg-important: #1a160b;
-    --bg-warning: #1a0c0c;
-    --bg-note: #100c1c;
+    --bg-tip: rgba(255, 255, 255, 0.04);
+    --bg-important: rgba(255, 255, 255, 0.04);
+    --bg-warning: rgba(255, 255, 255, 0.04);
+    --bg-note: rgba(255, 255, 255, 0.04);
 
-    --border-tip: #1f8c64;
-    --border-important: #b26a00;
-    --border-warning: #a00000;
-    --border-note: #0045a3;
+    --border-tip: rgba(255, 255, 255, 0.35);
+    --border-important: rgba(255, 255, 255, 0.35);
+    --border-warning: rgba(255, 255, 255, 0.35);
+    --border-note: rgba(255, 255, 255, 0.35);
 
     --layout-max: 1280px;
     --sidebar-width: 196px;
 
+    /* ── Liquid glass ── */
+    --glass-bg: rgba(8, 8, 8, 0.55);
+    --glass-bg-strong: rgba(12, 12, 12, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.09);
+    --glass-border-bright: rgba(255, 255, 255, 0.14);
+    --glass-highlight: rgba(255, 255, 255, 0.07);
+    --glass-blur: 20px;
+    --radius-sm: 0;
+    --radius-md: 0;
+    --radius-lg: 0;
+
     --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Shared frosted glass surface */
+.glass,
+.wiki-sidebar,
+.wiki-container,
+.wiki-block,
+.card,
+.wiki-site-notice,
+.wiki-lead,
+.search-results-box,
+footer {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur)) saturate(1.2);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.2);
+    border: 1px solid var(--glass-border);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 var(--glass-highlight);
 }
 
 /* ── Reset ── */
@@ -76,11 +107,8 @@ html {
 
 body {
     background-color: var(--bg-body);
-    background-image:
-        radial-gradient(ellipse 90% 55% at 50% -10%, rgba(104, 104, 212, 0.14), transparent 55%),
-        radial-gradient(ellipse 50% 40% at 0% 100%, rgba(90, 70, 180, 0.08), transparent 50%),
-        radial-gradient(ellipse 50% 40% at 100% 100%, rgba(90, 70, 180, 0.08), transparent 50%);
-    color: var(--text-main);
+    background-image: none;
+    color: #ffffff;
     font-family: var(--font-body);
     font-size: 0.92rem;
     line-height: 1.55;
@@ -92,7 +120,7 @@ body {
 
 .wiki-body--nightsky {
     background-image:
-        linear-gradient(180deg, rgba(12, 10, 20, 0.82) 0%, rgba(18, 14, 28, 0.92) 100%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.72) 0%, rgba(4, 4, 4, 0.82) 100%),
         url('../assests/nightsky.png');
     background-size: cover;
     background-position: center;
@@ -101,8 +129,24 @@ body {
 }
 
 ::selection {
-    background: rgba(104, 104, 212, 0.38);
-    color: var(--text-bright);
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+}
+
+a,
+a:visited,
+a:hover {
+    color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, li, span, label, th, td, dt, dd,
+.wiki-sidebar-head,
+.wiki-block-head,
+.card h3, .card p,
+.callout, .callout strong,
+footer, footer a {
+    color: #ffffff;
 }
 
 /* ═══════════════════════════════════════════
@@ -111,23 +155,23 @@ body {
 .wiki-page-wrap {
     display: flex;
     align-items: flex-start;
-    gap: 0;
+    gap: 0.75rem;
     width: 100%;
     max-width: var(--layout-max);
     margin: 0 auto;
-    padding: 0.5rem;
+    padding: 0.75rem;
     flex: 1;
 }
 
 .wiki-sidebar {
     width: 100%;
-    border: 1px solid var(--border-medium);
-    background: var(--bg-sidebar);
+    border-radius: var(--radius-md);
     font-size: 0.82rem;
+    overflow: hidden;
 }
 
 .wiki-sidebar-block {
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .wiki-sidebar-block:last-child {
@@ -135,15 +179,15 @@ body {
 }
 
 .wiki-sidebar-head {
-    background: var(--bg-block-head);
-    border-bottom: 1px solid var(--border-medium);
-    padding: 0.35rem 0.55rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: none;
+    padding: 0.5rem 0.75rem 0.35rem;
     font-family: var(--font-ui);
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--accent-blue);
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #ffffff;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
 }
 
 .wiki-sidebar ul {
@@ -154,22 +198,25 @@ body {
 
 .wiki-sidebar li a {
     display: block;
-    padding: 0.3rem 0.55rem;
-    border-bottom: 1px solid var(--border-light);
-    color: var(--link-color);
+    padding: 0.45rem 0.75rem;
+    margin: 0.15rem 0.5rem;
+    border-bottom: none;
+    border-radius: var(--radius-sm);
+    color: #ffffff;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 0.8125rem;
     line-height: 1.35;
+    transition: background 0.15s var(--ease-out), color 0.15s var(--ease-out);
 }
 
 .wiki-sidebar li:last-child a {
-    border-bottom: none;
+    margin-bottom: 0.35rem;
 }
 
 .wiki-sidebar li a:hover,
 .wiki-sidebar li a.active {
-    background: var(--purple-muted);
-    color: var(--link-hover);
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
 }
 
 .wiki-content-column {
@@ -177,29 +224,29 @@ body {
     min-width: 0;
 }
 
-/* Bordered content blocks (vichan / MediaWiki panels) */
+/* Content blocks — simple glass panels */
 .wiki-block {
-    border: 1px solid var(--border-medium);
-    margin-bottom: 0.65rem;
-    background: var(--bg-surface);
+    margin-bottom: 0.75rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
 }
 
 .wiki-block-head {
-    background: var(--bg-block-head);
-    border-bottom: 1px solid var(--border-medium);
-    padding: 0.3rem 0.55rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.5rem 0.85rem;
     font-family: var(--font-ui);
-    font-size: 0.74rem;
-    font-weight: 700;
-    color: var(--accent-blue);
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #ffffff;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
 }
 
 .wiki-block-body {
-    padding: 0.55rem 0.65rem;
-    font-size: 0.86rem;
-    line-height: 1.5;
+    padding: 0.75rem 0.85rem;
+    font-size: 0.875rem;
+    line-height: 1.55;
 }
 
 .wiki-block-body p:last-child,
@@ -224,17 +271,17 @@ body {
 }
 
 .wiki-site-notice {
-    border: 1px solid var(--border-medium);
-    background: var(--bg-block-head);
-    padding: 0.35rem 0.55rem;
-    margin-bottom: 0.5rem;
-    font-size: 0.78rem;
-    color: var(--text-secondary);
+    padding: 0.6rem 0.85rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.8125rem;
+    color: #ffffff;
     text-align: center;
+    border-radius: var(--radius-md);
 }
 
 .wiki-site-notice strong {
-    color: var(--accent-blue);
+    color: #ffffff;
+    font-weight: 600;
 }
 
 /* ═══════════════════════════════════════════
@@ -262,19 +309,16 @@ body {
 
 .wiki-logo-box img {
     width: 100%;
-    max-width: 140px;
+    max-width: 120px;
     height: auto;
     display: block;
-    filter: drop-shadow(0 0 10px rgba(104, 104, 212, 0.3));
-    transform-origin: 50% 92%;
-    animation:
-        wikiLogoRotate 17s ease-in-out infinite,
-        wikiLogoBob 11s ease-in-out infinite;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
     transition: filter 0.2s var(--ease-out);
+    animation: none;
 }
 
 .wiki-logo-box:hover img {
-    filter: drop-shadow(0 0 16px rgba(130, 130, 235, 0.55));
+    filter: drop-shadow(0 4px 16px rgba(255, 255, 255, 0.15));
 }
 
 .wiki-logo-name {
@@ -348,24 +392,19 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     gap: 0.35rem;
-    padding: 0 0 0;
-    margin-bottom: -1px;
-}
-
-.wiki-topbar-title {
-    padding: 0.2rem 0.15rem 0.3rem;
-    line-height: 1.2;
+    padding: 0 0 0.65rem;
+    margin-bottom: 0;
 }
 
 .wiki-topbar-tabs {
     list-style: none;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 0.2rem;
+    gap: 0.35rem;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -374,33 +413,36 @@ body {
 .wiki-topbar-tabs>li>a {
     display: block;
     font-family: var(--font-ui);
-    font-size: 0.76rem;
+    font-size: 0.8125rem;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: #ffffff;
     text-decoration: none;
-    padding: 0.28rem 0.7rem;
-    background: var(--bg-surface);
-    border: 1px solid var(--border-medium);
-    border-bottom: none;
-    transition: color 0.12s var(--ease-out), background-color 0.12s var(--ease-out);
+    padding: 0.4rem 0.9rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 0;
+    box-shadow: inset 0 1px 0 var(--glass-highlight);
+    transition: color 0.15s var(--ease-out), background 0.15s var(--ease-out), border-color 0.15s var(--ease-out);
 }
 
 .wiki-topbar-tabs>li>a:hover {
-    color: var(--text-bright);
-    background: var(--purple-muted);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--glass-border-bright);
 }
 
 .wiki-topbar-tabs>li>a.active {
-    color: var(--text-bright);
-    background: var(--bg-content);
-    border-color: rgba(104, 104, 212, 0.28);
-    box-shadow: inset 0 2px 0 var(--accent-blue);
-    position: relative;
+    color: #000000;
+    background: #ffffff;
+    border-color: #ffffff;
+    box-shadow: none;
 }
 
 /* Sidebar search block */
 .wiki-sidebar-search {
-    padding: 0.4rem 0.45rem;
+    padding: 0.5rem 0.65rem 0.65rem;
 }
 
 /* ═══════════════════════════════════════════
@@ -410,12 +452,13 @@ body {
     width: 100%;
     max-width: none;
     margin: 0;
-    padding: 0.65rem 0.75rem;
-    background: var(--bg-content);
-    border: 1px solid rgba(104, 104, 212, 0.28);
-    border-radius: 0;
-    box-shadow: none;
+    padding: 1rem 1.1rem;
+    border-radius: var(--radius-lg);
     animation: none;
+}
+
+.wiki-container::before {
+    display: none;
 }
 
 .wiki-container::after {
@@ -425,23 +468,23 @@ body {
 }
 
 .wiki-page-title {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-bright);
-    border-bottom: 2px solid var(--accent-blue);
-    padding-bottom: 0.25rem;
-    margin: 0 0 0.5rem;
+    color: #ffffff;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin: 0 0 0.35rem;
     line-height: 1.25;
+    letter-spacing: -0.02em;
 }
 
 .wiki-lead {
     font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 0.65rem;
-    padding: 0.4rem 0.55rem;
-    border: 1px solid var(--border-light);
-    background: var(--bg-surface);
-    line-height: 1.5;
+    color: #ffffff;
+    margin-bottom: 0.85rem;
+    padding: 0.65rem 0.85rem;
+    line-height: 1.55;
+    border-radius: var(--radius-md);
 }
 
 /* ═══════════════════════════════════════════
@@ -463,22 +506,23 @@ h6 {
 h1 {
     font-size: 1.35rem;
     font-weight: 700;
-    border-bottom: 2px solid var(--accent-blue);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding-bottom: 0.25rem;
     margin-bottom: 0.5rem;
     letter-spacing: 0;
-    color: var(--text-bright);
+    color: #ffffff;
     background: none;
     -webkit-text-fill-color: unset;
 }
 
 h2 {
     font-size: 1rem;
-    border-bottom: 1px solid var(--border-medium);
-    padding-bottom: 0.2rem;
-    margin-top: 0.85rem;
-    margin-bottom: 0.35rem;
-    color: var(--accent-blue);
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    font-weight: 600;
 }
 
 h3 {
@@ -532,11 +576,11 @@ li {
 }
 
 code {
-    font-family: var(--font-body);
+    font-family: var(--font-mono);
     background-color: var(--bg-surface);
     border: 1px solid var(--border-light);
     padding: 0.15em 0.4em;
-    border-radius: 3px;
+    border-radius: 0;
     font-size: 0.9em;
     color: var(--accent-cyan);
 }
@@ -544,7 +588,7 @@ code {
 pre {
     background-color: var(--bg-surface);
     border: 1px solid var(--border-light);
-    border-radius: 3px;
+    border-radius: 0;
     padding: 1rem;
     overflow-x: auto;
     margin-bottom: 1rem;
@@ -579,27 +623,25 @@ blockquote {
 }
 
 .card {
-    background: var(--bg-surface);
-    padding: 0.55rem 0.65rem;
-    border: 1px solid var(--border-medium);
-    border-radius: 0;
-    transition: border-color 0.15s var(--ease-out), background-color 0.15s var(--ease-out);
+    padding: 0.75rem 0.85rem;
+    border-radius: var(--radius-md);
+    transition: border-color 0.15s var(--ease-out), background 0.15s var(--ease-out), transform 0.15s var(--ease-out);
     display: flex;
     flex-direction: column;
 }
 
 .card:hover {
-    border-color: var(--accent-blue);
-    background: var(--purple-subtle);
-    box-shadow: none;
-    transform: none;
+    border-color: var(--glass-border-bright);
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-1px);
 }
 
 .card h3 {
-    font-size: 0.88rem;
-    color: var(--accent-blue);
+    font-size: 0.9rem;
+    color: #ffffff;
+    font-weight: 600;
     margin-top: 0;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.35rem;
     border-bottom: none;
 }
 
@@ -632,12 +674,17 @@ blockquote {
    CALLOUTS / ADMONITIONS
    ═══════════════════════════════════════════ */
 .callout {
-    padding: 0.5rem 0.65rem;
+    padding: 0.65rem 0.85rem;
     margin: 0.5rem 0;
-    border-radius: 0;
-    border-left: 3px solid transparent;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--glass-border);
+    border-left-width: 3px;
     font-size: 0.84rem;
     position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: inset 0 1px 0 var(--glass-highlight);
 }
 
 .callout strong {
@@ -689,8 +736,8 @@ blockquote {
    ═══════════════════════════════════════════ */
 .toc-box {
     background-color: var(--bg-surface);
-    border: 1px solid rgba(104, 104, 212, 0.22);
-    border-radius: 10px;
+    border: 1px solid var(--border-medium);
+    border-radius: 0;
     padding: 0;
     display: inline-block;
     min-width: 220px;
@@ -703,14 +750,14 @@ blockquote {
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 0.82rem;
-    color: var(--purple-soft);
+    color: var(--text-muted);
     text-align: left;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     padding: 0.6rem 1rem;
     margin-bottom: 0;
-    background: var(--gradient-surface);
-    border-bottom: 1px solid rgba(104, 104, 212, 0.2);
+    background: var(--bg-block-head);
+    border-bottom: 1px solid var(--border-light);
 }
 
 .toc-box>ul {
@@ -828,9 +875,9 @@ blockquote {
 
 .thumb-inner {
     background-color: var(--bg-surface);
-    border: 1px solid rgba(104, 104, 212, 0.2);
+    border: 1px solid var(--border-light);
     padding: 6px;
-    border-radius: 8px;
+    border-radius: 0;
     box-shadow: none;
 }
 
@@ -838,7 +885,7 @@ blockquote {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 2px;
+    border-radius: 0;
 }
 
 .thumb-caption {
@@ -859,9 +906,9 @@ blockquote {
 
 .wiki-video .thumb-inner {
     background-color: var(--bg-surface);
-    border: 1px solid rgba(104, 104, 212, 0.2);
+    border: 1px solid var(--border-light);
     padding: 6px;
-    border-radius: 8px;
+    border-radius: 0;
     box-shadow: none;
 }
 
@@ -870,7 +917,7 @@ blockquote {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 2px;
+    border-radius: 0;
     background-color: #000;
 }
 
@@ -888,7 +935,7 @@ blockquote {
 
 .wiki-table th {
     background-color: var(--bg-surface);
-    color: var(--accent-blue);
+    color: var(--text-secondary);
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 0.82rem;
@@ -911,7 +958,7 @@ blockquote {
 }
 
 .wiki-table tr:hover {
-    background-color: var(--purple-subtle);
+    background-color: rgba(255, 255, 255, 0.02);
 }
 
 .table-responsive {
@@ -924,15 +971,17 @@ blockquote {
    FOOTER
    ═══════════════════════════════════════════ */
 footer {
-    background: var(--bg-footer);
     text-align: center;
-    padding: 0.75rem 1rem;
+    padding: 1rem 1.25rem;
     margin-top: auto;
-    border-top: 2px solid rgba(104, 104, 212, 0.35);
-    color: var(--text-muted);
+    border-top: none;
+    color: #ffffff;
     font-size: 0.75rem;
     position: relative;
     z-index: 10;
+    border-radius: 0;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
 }
 
 footer a {
@@ -968,21 +1017,23 @@ footer strong {
 
 #wiki-search {
     font-family: var(--font-ui);
-    font-size: 0.78rem;
+    font-size: 0.8125rem;
     width: 100%;
-    height: 28px;
-    padding: 0 0.5rem;
-    border-radius: 0;
-    border: 1px solid var(--border-medium);
-    background: var(--bg-surface);
-    color: var(--text-main);
-    transition: border-color 0.12s var(--ease-out), box-shadow 0.12s var(--ease-out);
+    height: 32px;
+    padding: 0 0.65rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--glass-border);
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #ffffff;
+    transition: border-color 0.15s var(--ease-out), box-shadow 0.15s var(--ease-out);
 }
 
 #wiki-search:focus {
-    border-color: var(--accent-blue);
+    border-color: var(--glass-border-bright);
     outline: none;
-    box-shadow: 0 0 0 1px rgba(104, 104, 212, 0.2);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12);
 }
 
 #wiki-search::placeholder {
@@ -991,20 +1042,17 @@ footer strong {
 
 .search-results-box {
     position: absolute;
-    top: calc(100% + 2px);
+    top: calc(100% + 6px);
     left: 0;
     right: 0;
     z-index: 1000;
-    background: var(--bg-surface);
-    border: 1px solid var(--border-medium);
-    border-radius: 0;
+    border-radius: var(--radius-md);
     max-height: 280px;
     overflow-y: auto;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
 .search-item:hover {
-    background: var(--purple-muted);
+    background: rgba(255, 255, 255, 0.04);
 }
 
 .search-item {
@@ -1051,14 +1099,14 @@ footer strong {
     margin: 0 0 1.25rem 1.5rem;
     background-color: var(--bg-surface);
     border: 1px solid var(--border-medium);
-    border-radius: 4px;
+    border-radius: 0;
     font-size: 0.85rem;
     overflow: hidden;
 }
 
 .infobox-title {
-    background: linear-gradient(135deg, rgba(104, 104, 212, 0.24), rgba(74, 74, 184, 0.12));
-    color: var(--purple-soft);
+    background: var(--bg-block-head);
+    color: var(--text-bright);
     text-align: center;
     font-family: var(--font-heading);
     font-weight: 700;
@@ -1079,7 +1127,7 @@ footer strong {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 2px;
+    border-radius: 0;
 }
 
 .infobox-image-caption {
@@ -1109,21 +1157,21 @@ footer strong {
     font-family: var(--font-ui);
     font-weight: 600;
     font-size: 0.75rem;
-    background-color: var(--purple-subtle);
+    background-color: rgba(255, 255, 255, 0.03);
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.03em;
 }
 
 .infobox tr:hover {
-    background-color: var(--purple-subtle);
+    background-color: rgba(255, 255, 255, 0.02);
 }
 
 /* ── Status badges ── */
 .status-badge {
     display: inline-block;
     padding: 1px 7px;
-    border-radius: 3px;
+    border-radius: 0;
     font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 600;
@@ -1182,7 +1230,7 @@ article {
 .wiki-stub {
     background-color: var(--bg-important);
     border: 1px dashed var(--accent-orange);
-    border-radius: 4px;
+    border-radius: 0;
     padding: 0.6rem 1rem;
     margin: 1.25rem 0;
     font-size: 0.82rem;
@@ -1212,14 +1260,14 @@ article {
 }
 
 .wiki-quote blockquote {
-    border-left: 3px solid var(--accent-purple);
-    background-color: rgba(176, 154, 255, 0.04);
+    border-left: 3px solid var(--border-bright);
+    background-color: rgba(255, 255, 255, 0.02);
     padding: 0.75rem 1.1rem;
     margin: 0;
     font-style: italic;
     color: var(--text-main);
     font-size: 0.95rem;
-    border-radius: 0 4px 4px 0;
+    border-radius: 0;
 }
 
 .wiki-quote figcaption {
@@ -1246,7 +1294,7 @@ article {
 .wiki-gallery figure {
     background-color: var(--bg-surface);
     border: 1px solid var(--border-light);
-    border-radius: 3px;
+    border-radius: 0;
     padding: 4px;
     margin: 0;
     transition: border-color 0.15s var(--ease-out);
@@ -1260,7 +1308,7 @@ article {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 2px;
+    border-radius: 0;
 }
 
 .wiki-gallery figcaption {
@@ -1286,7 +1334,7 @@ article {
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 0.9rem;
-    color: var(--accent-blue);
+    color: var(--text-bright);
     margin-top: 0.75rem;
     margin-bottom: 0.15rem;
 }
@@ -1332,17 +1380,18 @@ article {
     font-family: var(--font-ui);
     font-size: 0.72rem;
     padding: 3px 10px;
-    border-radius: 20px;
-    background-color: var(--purple-subtle);
-    border: 1px solid rgba(104, 104, 212, 0.25);
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-light);
     color: var(--link-color);
     cursor: default;
-    transition: background-color 0.2s var(--ease-smooth), box-shadow 0.2s var(--ease-smooth);
+    transition: background-color 0.2s var(--ease-smooth), border-color 0.2s var(--ease-smooth);
 }
 
 .wiki-cat:hover {
-    background-color: var(--purple-muted);
-    box-shadow: 0 0 12px rgba(104, 104, 212, 0.15);
+    background-color: var(--purple-subtle);
+    border-color: var(--border-medium);
+    box-shadow: none;
 }
 
 /* ── Breadcrumbs ──
@@ -1391,7 +1440,7 @@ article {
 .wiki-see-also {
     background-color: var(--bg-surface);
     border: 1px solid var(--border-light);
-    border-radius: 4px;
+    border-radius: 0;
     padding: 0.75rem 1rem;
     margin: 1.25rem 0;
 }
@@ -1399,7 +1448,7 @@ article {
 .wiki-see-also strong {
     font-family: var(--font-heading);
     font-size: 0.82rem;
-    color: var(--accent-blue);
+    color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.04em;
     display: block;
@@ -1424,7 +1473,7 @@ article {
     font-family: var(--font-body);
     font-size: 0.78rem;
     padding: 1px 6px;
-    border-radius: 3px;
+    border-radius: 0;
     background-color: var(--bg-surface);
     border: 1px solid var(--border-medium);
     border-bottom-width: 2px;
@@ -1440,7 +1489,7 @@ article {
     font-size: 0.75rem;
     font-weight: 600;
     padding: 1px 6px;
-    border-radius: 3px;
+    border-radius: 0;
     text-transform: uppercase;
     letter-spacing: 0.03em;
 }
@@ -1477,16 +1526,7 @@ article {
    PAGE BACKGROUND IMAGE (subtle)
    ═══════════════════════════════════════════ */
 .wiki-container::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url('/assests/pagebackground.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.05;
-    pointer-events: none;
-    z-index: 0;
+    display: none;
 }
 
 /* Push all wiki-container children above the background overlay */
@@ -1515,13 +1555,13 @@ body::after {
 body::before {
     left: 0;
     clip-path: polygon(0% 0%, 0% 100%, 40% 50%);
-    background: linear-gradient(90deg, rgba(104, 104, 212, 0.18) 0%, transparent 70%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
 }
 
 body::after {
     right: 0;
     clip-path: polygon(100% 0%, 100% 100%, 60% 50%);
-    background: linear-gradient(270deg, rgba(104, 104, 212, 0.18) 0%, transparent 70%);
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
 }
 
 /* Ensure shell & footer render above the triangles */
@@ -1653,12 +1693,12 @@ footer {
 
 ::-webkit-scrollbar-thumb {
     background: var(--border-medium);
-    border-radius: 4px;
+    border-radius: 0;
     border: 2px solid var(--bg-body);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--purple-primary);
+    background: var(--border-bright);
 }
 
 /* Specific scrollbar styling for search results box */
@@ -1727,37 +1767,23 @@ footer {
 }
 
 .credit-note {
-    color: #888888;
+    color: #ffffff;
     font-size: 0.85em;
 }
 
-/* The CSS class you will apply to the text */
 .wiki-glow-purple {
     font-weight: bold;
-    color: var(--purple-primary);
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 1px;
-    animation: purplePulse 3s ease-in-out infinite alternate;
+    animation: none;
 }
 
 @keyframes purplePulse {
-    0% {
-        text-shadow:
-            0 0 4px rgba(104, 104, 212, 0.5),
-            0 0 8px rgba(104, 104, 212, 0.3);
-    }
-
-    50% {
-        text-shadow:
-            0 0 8px #ff8fa3,
-            0 0 16px var(--purple-primary);
-        color: var(--purple-light);
-    }
-
+    0%,
     100% {
-        text-shadow:
-            0 0 4px rgba(139, 0, 0, 0.6),
-            0 0 13px rgba(74, 0, 16, 0.5);
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+        color: #ffffff;
     }
 }
 
@@ -1765,36 +1791,19 @@ footer {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
-    background: linear-gradient(120deg, #8b0000 20%, #ff8fa3 50%, #8b0000 80%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shineLoop 4s linear infinite;
-}
-
-@keyframes shineLoop {
-    0% {
-        background-position: 200% center;
-    }
-
-    100% {
-        background-position: 0% center;
-    }
+    color: #ffffff;
+    background: none;
+    -webkit-text-fill-color: #ffffff;
+    animation: none;
 }
 
 .wiki-stat-number {
     font-family: 'Courier New', monospace;
-    /* Gives a distinct data/stat feel */
     font-size: 1.25em;
     font-weight: 900;
-
-    /* Creates a metallic vertical gradient background strictly inside the text */
-    background: linear-gradient(to bottom, #ffffff 30%, #b5bdc8 70%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    /* Smooth transition for the hover effect */
+    color: #ffffff;
+    background: none;
+    -webkit-text-fill-color: #ffffff;
     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: inline-block;
 }
@@ -1823,29 +1832,19 @@ footer {
 
 .wiki-site-logo {
     font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 0.82rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.01em;
+    text-transform: none;
     text-decoration: none;
     display: inline-block;
-    line-height: 1.15;
-    white-space: nowrap;
-    background: linear-gradient(
-        100deg,
-        #c4c4ff 0%,
-        #7575e0 30%,
-        #e8e8ff 50%,
-        #7575e0 70%,
-        #5858c8 100%
-    );
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 10px rgba(104, 104, 212, 0.35));
-    transition: filter 0.2s var(--ease-out);
-    animation: wikiLogoGradient 5s ease-in-out infinite alternate;
+    line-height: 1.2;
+    white-space: normal;
+    color: #ffffff;
+    -webkit-text-fill-color: unset;
+    background: none;
+    filter: none;
+    animation: none;
 }
 
 
@@ -1876,7 +1875,7 @@ footer {
 }
 
 .wiki-keyword-reveal {
-    color: var(--purple-light);
+    color: var(--link-color);
     font-weight: 600;
     text-decoration: none;
     position: relative;
@@ -1886,7 +1885,7 @@ footer {
 .wiki-keyword-glow {
     font-weight: 600;
     color: #ffe0e6;
-    text-shadow: 0 2px 8px rgba(104, 104, 212, 0.6);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
 /* ═══════════════════════════════════════════
@@ -1899,7 +1898,7 @@ footer {
     position: relative;
     overflow: hidden;
     border: 1px solid var(--border-medium);
-    border-radius: 6px;
+    border-radius: 0;
     padding: 1.75rem 1.5rem 1.5rem;
     margin-bottom: 1.75rem;
     background-color: rgba(15, 15, 21, 0.85);
@@ -1959,10 +1958,8 @@ footer {
 
 /* Glow border on hover */
 .hub-category:hover {
-    border-color: var(--purple-primary);
-    box-shadow:
-        0 0 24px rgba(104, 104, 212, 0.12),
-        0 4px 24px rgba(0, 0, 0, 0.25);
+    border-color: var(--border-bright);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
 }
 
 /* Push children above the background image */
@@ -1979,27 +1976,27 @@ footer {
     margin-bottom: 1.15rem;
     padding-bottom: 0.65rem;
     border-bottom: 1px solid var(--border-light);
-    background: linear-gradient(90deg, var(--purple-subtle) 0%, transparent 100%);
+    background: transparent;
     margin: -1.75rem -1.5rem 1.25rem;
     padding: 1rem 1.5rem 0.75rem;
-}
-
-.hub-category-icon {
-    font-size: 1.3rem;
-    line-height: 1;
-    filter: saturate(0.8);
 }
 
 .hub-category-title {
     font-family: var(--font-heading);
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--accent-blue);
+    color: var(--text-bright);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin: 0;
     padding: 0;
     border: none;
+}
+
+.hub-category-icon {
+    font-size: 1.3rem;
+    line-height: 1;
+    filter: saturate(0.8);
 }
 
 /* ── Card grid inside category ── */
@@ -2024,9 +2021,9 @@ footer {
 }
 
 .hub-category-cards .card:hover {
-    background-color: rgba(28, 10, 16, 0.92);
-    border-color: var(--purple-primary);
-    box-shadow: 0 6px 24px rgba(104, 104, 212, 0.15);
+    background-color: rgba(28, 28, 36, 0.92);
+    border-color: var(--border-bright);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
 }
 
@@ -2188,8 +2185,8 @@ footer {
 .wiki-version-tag {
     display: inline-block;
     padding: 1px 7px;
-    border-radius: 3px;
-    background-color: var(--purple-subtle);
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--border-light);
     color: var(--link-color);
     font-family: var(--font-ui);
@@ -2204,7 +2201,7 @@ footer {
 }
 
 .wiki-notice {
-    border-radius: 4px;
+    border-radius: 0;
     padding: 0.65rem 1rem;
     font-size: 0.84rem;
     line-height: 1.55;
@@ -2253,7 +2250,7 @@ footer {
     background: transparent;
     border: 1px solid transparent;
     border-bottom: none;
-    border-radius: 4px 4px 0 0;
+    border-radius: 0;
     color: var(--text-muted);
     cursor: pointer;
     font-family: var(--font-ui);
@@ -2268,20 +2265,22 @@ footer {
 
 .wiki-tabs [role="tab"]:hover {
     color: var(--text-main);
-    background-color: var(--purple-subtle);
+    background-color: rgba(255, 255, 255, 0.03);
 }
 
 .wiki-tabs [role="tab"][aria-selected="true"] {
-    background: linear-gradient(180deg, rgba(104, 104, 212, 0.18), rgba(24, 18, 40, 0.92));
-    border-color: rgba(104, 104, 212, 0.45);
-    color: var(--purple-soft);
+    background: var(--bg-surface);
+    border-color: var(--border-medium);
+    border-bottom-color: var(--bg-surface);
+    color: var(--link-color);
+    box-shadow: inset 0 2px 0 var(--purple-primary);
 }
 
 .wiki-tab-panels {
     background-color: var(--bg-surface);
     border: 1px solid var(--border-medium);
     border-top: none;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0;
     padding: 1.25rem 1.35rem 1.5rem;
     margin-bottom: 1.5rem;
 }
@@ -2313,7 +2312,7 @@ footer {
     padding: 0.85rem 0.9rem;
     background-color: rgba(15, 15, 21, 0.85);
     border: 1px solid var(--border-light);
-    border-radius: 4px;
+    border-radius: 0;
     font-size: 0.78rem;
 }
 
@@ -2344,7 +2343,7 @@ footer {
     text-decoration: none;
     display: block;
     padding: 0.2rem 0.35rem;
-    border-radius: 3px;
+    border-radius: 0;
     border-left: 2px solid transparent;
     transition: color 0.12s var(--ease-out), background-color 0.12s var(--ease-out), border-color 0.12s var(--ease-out);
 }
@@ -2352,8 +2351,8 @@ footer {
 .wiki-toc-sidebar a:hover,
 .wiki-toc-sidebar a.is-active {
     color: var(--link-color);
-    background-color: var(--purple-muted);
-    border-left-color: var(--accent-blue);
+    background-color: var(--purple-subtle);
+    border-left-color: var(--purple-primary);
 }
 
 .wiki-toc-sidebar ul ul {
@@ -2365,9 +2364,9 @@ footer {
 .wiki-ai-summary {
     margin: 0 0 1.25rem;
     padding: 0.9rem 1rem;
-    border-radius: 10px;
-    border: 1px solid rgba(104, 104, 212, 0.3);
-    background: linear-gradient(135deg, rgba(104, 104, 212, 0.14), rgba(74, 74, 184, 0.08));
+    border-radius: 0;
+    border: 1px solid var(--border-medium);
+    background: var(--bg-surface);
 }
 
 .wiki-ai-summary-header {
@@ -2382,21 +2381,21 @@ footer {
 .wiki-ai-summary-header h2 {
     margin: 0;
     font-size: 0.95rem;
-    color: var(--purple-soft);
+    color: var(--text-bright);
 }
 
 .wiki-ai-badge {
     display: inline-block;
     padding: 2px 8px;
-    border-radius: 20px;
+    border-radius: 0;
     font-family: var(--font-ui);
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    background-color: var(--purple-muted);
-    border: 1px solid rgba(104, 104, 212, 0.35);
-    color: var(--purple-soft);
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-light);
+    color: var(--text-secondary);
 }
 
 .wiki-ai-summary p {
@@ -2435,7 +2434,7 @@ footer {
 .wiki-contributor-list li {
     padding: 0.65rem 0.75rem;
     border: 1px solid var(--border-light);
-    border-radius: 4px;
+    border-radius: 0;
     background-color: rgba(21, 21, 31, 0.55);
 }
 
